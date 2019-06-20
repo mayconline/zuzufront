@@ -15,11 +15,16 @@ export default class Bolos extends Component{
             this.setState({listaBolos:res.data});
     }
 
+    handleLike = (_id) =>{
+        api.post(`/bolos/${_id}/like`);
+    }
+
+
     render(){
         return(
             <Fragment>
               <Section>
-              <Listcakes bolos={this.state.listaBolos} />
+              <Listcakes bolos={this.state.listaBolos} like={this.handleLike}/>
               </Section>            
             </Fragment>
         )

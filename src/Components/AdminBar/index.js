@@ -13,8 +13,8 @@ const AdminBar = ({AdminClose})=>(
         <div className='menu'>
             <ul>
             
-                <li><Link to="/admin/produtos/cadastro"><FaTools size={15} color={'#fff'}/><p>CADASTRAR</p></Link></li>
-                <li><Link to="/admin/produtos/cadastro"><FaUser size={15} color={'#fff'}/><p>USUARIOS</p></Link></li>
+                <li><Link to="/admin/bolos/cadastro"><FaTools size={15} color={'#fff'}/><p>CADASTRAR</p></Link></li>
+                <li><Link to="/admin/user/cadastro"><FaUser size={15} color={'#fff'}/><p>USUARIOS</p></Link></li>
                 <li> <FaTimes onClick={AdminClose} color={'#fff'} size={30}/></li>
                 
             </ul>

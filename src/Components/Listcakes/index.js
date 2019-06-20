@@ -3,10 +3,11 @@ import {CardContent, Content} from './styled';
 
 import {distanceInWords} from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import{MdLink} from 'react-icons/md';
+import { FaRegHeart, FaPaperclip } from "react-icons/fa";
 
 
-const Listcakes = ({bolos}) =>{
+
+const Listcakes = ({bolos, like}) =>{
 
     return(
         <Fragment>
@@ -25,14 +26,24 @@ const Listcakes = ({bolos}) =>{
                         <h3>{bolo.descricao}</h3>
                         <span> Há {distanceInWords(bolo.createdAt, new Date(), {locale:pt})} </span>
                      </figcaption>
+                  <footer>
+                    <div>
+                      <button type='button' onClick={()=>like(bolo._id)}>
+                      <FaRegHeart style={{marginRight:8}}  size={20} color='#666'/>
+                      </button>
+                      
+                       
 
-                     <div>
                      <a href={bolo.url}
                          target='_blank'
                            rel='noopener noreferrer'>                                     
-                         <MdLink style={{marginRight:8}}  size={24} color='#222'/>
-                       </a>                                                  
+                         <FaPaperclip style={{marginRight:8}}  size={20} color='#666'/>
+                       </a> 
+                                               
                      </div>
+                     <strong><p>{bolo.likes} curtidas</p></strong>
+                  </footer>
+                     
                 </section>
           </figure>       
     

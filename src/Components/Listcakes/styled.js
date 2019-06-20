@@ -31,7 +31,7 @@ export const CardContent = styled.div`
                     width:100%;
                    
                     max-height:450px;
-                    cursor: pointer;
+                   
                    
                 }
                 section{
@@ -57,19 +57,50 @@ export const CardContent = styled.div`
                             color:#999;
                         }
                   }
-   
-                  div{
+
+            footer{
+
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                flex-direction:column;
+                
+                p{
+                    font-size:0.8rem;
+                    padding:0.5rem auto;
+                    line-height:18px;
+                    text-align:center;
+                    margin:0 0.25rem;
+                    display:block;
+                   
+                }
+               
+
+                div{
                     display:flex;
                     justify-content:flex-end;
-                   flex-direction:row;
+                    flex-direction:row;
+                    align-items:center;
+                    padding-top:0.7rem;
+
+                   button{
+                       background:transparent;
+                       border:transparent;
+                       cursor: pointer;  
+                       &:hover{
+                            opacity:0.7;
+                        }                    
+                   }
                     
                     a{
                         color: #444;
-                        margin-top:1rem;
+                        
                         &:hover{
                             opacity:0.7;
                         }
                     }
                   }
+            }
+                  
     
 `;

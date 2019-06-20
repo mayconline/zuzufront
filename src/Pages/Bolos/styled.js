@@ -11,5 +11,6 @@ column-count:4;
   
   div{
         break-inside:avoid-column;
+        overflow:hidden;
     }
 `;
