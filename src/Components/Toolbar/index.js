@@ -9,7 +9,7 @@ import AdminBar from '../AdminBar';
 
 import { FaBirthdayCake,
      FaRegAddressCard, FaRegCommentDots,
-     FaSearch, FaFacebookF,
+      FaFacebookF,
      FaInstagram, FaWhatsapp, 
      FaBars} from "react-icons/fa";
      
@@ -53,7 +53,7 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick}) =>(
             <Link to="/"> <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1556741879/ZuzuCake/Logo/zuzuLogo_x0crgs.png' alt='ZuzuCakes' /></Link>   
                  </div>
           
-                 <SearchBar />
+    <SearchBar />
 
           {/*activeClassName=selected coloca a classe automatica*/}
                    

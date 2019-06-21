@@ -2,34 +2,58 @@ import styled from 'styled-components';
 
 export const JSS = styled.article`
 
+  margin:0.5rem;
     form{
         
-        
-        .group-search{
         display:flex;
         justify-content:center;
+        width:100%;
+        min-width:280px;
+        background:#fafafa;
+        border-radius:0.5rem;
+        
+        
+        @media (max-width:1024px) {
+                  display:flex;
+                
+            justify-content:center;
+            align-items:center;
+            
+
+                 }
+
+       
+      
+        .group-search{
+      
         align-items:center;
         align-content:center;
-        background:#fff;
+        
+        
         border-radius:0.5rem;
+        
+        display:flex;
+          width:100%;
+          min-width:280px;
+        padding-left:0.5rem;
 
-        @media (max-width:1024px) {
-                  
-                  display:none;  
-
-             }
+        
+        
     
         }
 
         input {
+            width:100%;
+            min-width: 280px;
                     border: none;                                     
                     outline:none;                  
                     color:#999;
-                    width:40rem;
+                    
                     padding:0.5rem;
                     font-size:1rem;
                     &:hover,:focus{
-                      opacity:0.5rem;        
+                      opacity:0.5rem;  
+                      color:#e52d27;     
                     }
 
                     
@@ -40,11 +64,11 @@ export const JSS = styled.article`
             button{
                
                 border-radius:0.5rem;
-                padding:0.7rem;
+                padding:0.5rem;
                 border:none;
-                margin: .25rem;
+                margin-bottom: 0.25rem;
                 cursor:pointer;
-                background:transparent;
+                background:#fafafa;
                 color:red;
 
                 

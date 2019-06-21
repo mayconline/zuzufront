@@ -1,6 +1,5 @@
 import React, {Fragment, Component} from 'react';
 
-import InputForm from '../InputForm';
 import {JSS} from './styled';
 
 import {FaSearch} from "react-icons/fa";

@@ -12,31 +12,42 @@ background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Fi
 border-bottom: 0.25rem solid #D1913C ;
 border-top: 0.25rem solid orange ;
 
-    nav{
-        display: flex;
-        justify-content:space-between;
-    
 
+
+
+
+    nav{
+      
+       display:flex;
+       justify-content:space-between;
+       
     align-items: center;
-    height: 100%;
-    padding: 0;
-    width: 100%;
-    margin:0;
+    
+    @media (max-width:1024px) {
+                  
+                  display:block;
+              justify-self: center;
+              align-items:center;
+              box-sizing:border-box;
+  
+                   }
+
+
 
          .toolbar_logo {
-            display:flex; 
+            display:flex;
+            justify-content:flex-start;
             padding-left:2rem;
-
-            
+           
           
                 img{
                     max-height:8rem;
                 }
 
              @media (max-width:1024px) {
-                  
-                margin:0 auto;
-            justify-self: center;
+                  display:flex;
+                
+            justify-content:center;
             align-items:center;
 
                  }
@@ -45,10 +56,12 @@ border-top: 0.25rem solid orange ;
 
 
          .toolbar_navigation_item {
-             display: flex;
-             justify-self: center;
+             display:flex;
+             justify-content:flex-end;
+             justify-self: flex-end;
              align-items:center;
-
+           
+           
 
                     ul {
                 list-style: none;
