@@ -3,6 +3,7 @@ import api from '../../Services/api';
 import {Card, Loading} from './styled';
 import InputForm from '../../Components/InputForm';
 import Upload from  '../../Components/Upload';
+import ProdPreview from '../../Components/ProdPreview';
 
 import ReactLoading from 'react-loading';
 
@@ -13,9 +14,32 @@ export default class Cadastro extends Component{
         file:null,
         descricao:'',
         tag:'',
-        tags:[]
+        tags:[],
+        listaBolos:[]
     };
 
+    async componentDidMount(){
+        const res = await api.get('/bolos');
+            this.setState({listaBolos:res.data});
+    }
+
+    deletarBolo = async (_id)=>{
+        
+        await  this.setState({loading:true});
+       
+        try{
+            await api.delete(`/bolos/${_id}`);
+                await this.setState({loading:false});
+                 window.location.reload();        
+           
+        }  
+        catch{
+             await   this.setState({loading:false});
+        }
+    }
+
+
+    
     handleChange = (e)=>{
         this.setState({
             [e.target.name]:e.target.value
@@ -111,6 +135,14 @@ export default class Cadastro extends Component{
             </form>
        
             </Card>
+
+            <section>
+            <ProdPreview 
+            bolos={this.state.listaBolos}
+            deletar={this.deletarBolo}
+                />
+            </section>
+            
 
             </Fragment>
         

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const Card = styled.article`
+export const Card = styled.section`
       
         border-radius:0.5rem;
         padding:1rem;       
