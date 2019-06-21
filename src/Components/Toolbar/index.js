@@ -6,11 +6,14 @@ import {Header, TopHeader, ToogleMenu}  from './styled';
 import AdminBar from '../AdminBar';
 
 
+
 import { FaBirthdayCake,
      FaRegAddressCard, FaRegCommentDots,
      FaSearch, FaFacebookF,
      FaInstagram, FaWhatsapp, 
      FaBars} from "react-icons/fa";
+     
+import SearchBar from '../SearchBar';
  
 const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick}) =>(
     <Fragment>
@@ -24,16 +27,16 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick}) =>(
             
         <TopHeader >
         <div className='social_bar'>                
-        <a href="/"><FaFacebookF color={'#000'} size={20}/></a>
-        <a href="/"><FaInstagram color={'#000'} size={20}/></a>
-        <a href="/"><FaWhatsapp color={'#000'} size={20}/></a>          
+        <a href="https://web.facebook.com/zulmira.serafim" rel='noopener noreferrer' target='_blank'><FaFacebookF color={'#000'} size={20}/></a>
+        <a href="https://www.instagram.com/zulmira_serafim" rel='noopener noreferrer' target='_blank'><FaInstagram color={'#000'} size={20}/></a>
+        <a href="https://web.whatsapp.com/send?phone=5521967524431&text=ola" rel='noopener noreferrer' target='_blank'><FaWhatsapp color={'#000'} size={20}/></a>          
         </div>
 
 
         <div className='admin_area'>
         <ul>
-            <li> <Link to="/admin/login"  className='login'> ENTRAR</Link></li>
-            <li > <Link to="/" className='register' > REGISTRAR</Link></li>
+            <li> <Link to="/login"  className='login'> ENTRAR</Link></li>
+            <li > <Link to="/registro" className='register' > REGISTRAR</Link></li>
             <li>  <FaBars onClick={AdminOpen} color={'#E54B4D'} size={30}/></li>
       
         </ul>
@@ -50,26 +53,21 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick}) =>(
             <Link to="/"> <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1556741879/ZuzuCake/Logo/zuzuLogo_x0crgs.png' alt='ZuzuCakes' /></Link>   
                  </div>
           
+                 <SearchBar />
 
           {/*activeClassName=selected coloca a classe automatica*/}
                    
             <div className='toolbar_navigation_item'>
                 <ul>
-                <li><NavLink to="/" exact ><FaRegAddressCard size={30}/><p>QUEM SOMOS</p></NavLink></li>
-                <li><NavLink to="/" exact ><FaRegCommentDots size={30}/><p>CONTATO</p></NavLink></li>
-                <li><NavLink to="/bolos" exact activeClassName="selected"> <FaBirthdayCake size={30}/> <p>BOLOS</p></NavLink></li>               
-                <li><NavLink to="/" exact ><FaSearch size={30}/><p>BUSCAR</p></NavLink></li>
-              
-                
-                
+                <li><NavLink to="/bolos" exact activeClassName="selected"> <FaBirthdayCake size={30}/> <p>BOLOS</p></NavLink></li>    
+                <li><a href="/#quemsomos" rel='noopener noreferrer'><FaRegAddressCard size={30}/><p>QUEM SOMOS</p></a></li>
+                <li><a href="/#contato" rel='noopener noreferrer'><FaRegCommentDots size={30}/><p>CONTATO</p></a></li>
                 </ul>
             </div>
-
-           
-           
-    
+  
         </nav>
         
+       
       
     </Header>
 

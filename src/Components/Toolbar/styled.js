@@ -25,18 +25,20 @@ border-top: 0.25rem solid orange ;
 
          .toolbar_logo {
             display:flex; 
-            margin:0 auto;
-            justify-self: center;
-            align-items:center;
+            padding-left:2rem;
 
+            
           
                 img{
                     max-height:8rem;
                 }
 
-             @media (max-width:500px) {
+             @media (max-width:1024px) {
                   
-                        
+                margin:0 auto;
+            justify-self: center;
+            align-items:center;
+
                  }
             }
 

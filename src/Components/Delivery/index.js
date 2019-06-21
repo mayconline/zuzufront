@@ -13,7 +13,7 @@ const Delivery = ()=>(
         <Container>
             <Row>
                 <Col col='12'>
-                    <Title>
+                    <Title id="quemsomos">
                         <h2>Atendemos toda Capital do Rio de Janeiro</h2>
                         <h3>
                          Estamos localizados no bairro de Cordovil, Zona Norte do RJ

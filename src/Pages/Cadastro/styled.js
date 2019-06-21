@@ -17,6 +17,7 @@ export const Card = styled.article`
             text-align:center;
         }
 
+        
 
             input {
                     border:none;         

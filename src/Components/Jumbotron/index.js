@@ -45,13 +45,13 @@ export default class Jumbotron extends Component {
 
     return(
         <Fragment>
-            <Title>
+            <Title id="contato">
         <h1>Bolos Temáticos Personalizados</h1>
         <h2>Recheios para todos os gostos, para tornar seu dia 
             especial e inesquecível. 
                               
           </h2>
-            <h3><FaWhatsapp size={50} color={'#00e676'}/></h3>
+            <h3 ><FaWhatsapp size={50} color={'#00e676'}/></h3>
             <span>  (21)96752-4431 </span>
          
 
