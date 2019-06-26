@@ -4,14 +4,14 @@ import {BrowserRouter} from 'react-router-dom';
 import GlobalStyle from './Styles/global';
 
 
-import Menu from './Components/Menu';
+//import Menu from './Components/Menu';
 
 function App() {
   return (
     
     <BrowserRouter>
     <GlobalStyle/>
-      <Menu/>
+      
       <Routes/>
     </BrowserRouter>
   );

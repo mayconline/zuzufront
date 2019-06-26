@@ -6,12 +6,14 @@ import Bolos from './Pages/Bolos';
 import Cadastro from './Pages/Cadastro';
 import Search from './Pages/Search';
 import Login from './Pages/Login';
+import Registro from './Pages/Registro';
 
 function Routes(){
     return(
         <Switch>
             <Route path='/' exact component={Main}/>
             <Route path='/login' exact component={Login}/>
+            <Route path='/registro' exact component={Registro}/>
             <Route path='/bolos' exact component={Bolos}/>  
             <Route path='/bolos/busca/:id' exact component={Search}/>  
             <Route path='/admin/bolos/cadastro' exact component={Cadastro}/>

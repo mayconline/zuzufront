@@ -75,7 +75,7 @@ border-top: 0.25rem solid orange ;
                                   }
 
                              a {
-                                color:white;
+                                 color:white;
                                  text-decoration: none;
                                  display: block;
                                  text-align: center;

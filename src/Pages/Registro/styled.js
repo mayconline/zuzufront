@@ -10,7 +10,7 @@ export const Container = styled.section`
 background: -webkit-linear-gradient(to left, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 flex-direction:column;
-height: 100vh;
+height:100vh;
 
 img{
             width: 300px;
@@ -19,8 +19,14 @@ img{
             font-size:2rem;
             font-weight:bold;
             border-radius:0.5rem;
+                                   
         }
 
+        @media(max-width:500px){
+
+              height:125vh;     
+           
+            } 
 
 `;
 
@@ -28,7 +34,7 @@ export const Card = styled.main`
 
         border-radius:0.5rem;
         padding:1rem;       
-        min-width:350px;
+        min-width:340px;
         max-width:900px;
         display:block;
         margin: 1rem auto;
