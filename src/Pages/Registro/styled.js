@@ -54,7 +54,7 @@ export const Card = styled.main`
             input {
                     border:none;         
                border-bottom:.1rem solid #999; 
-                text-transform: uppercase;
+                
                 outline:none;
                 border-radius:4px;
                 color:#999;
@@ -66,9 +66,7 @@ export const Card = styled.main`
             }
             
             label{
-                color:#f00;
-                text-transform: uppercase;
-               
+                color:#f00;               
                 display:flex;
                 justify-content:flex-start;
                 align-content:center;
@@ -114,4 +112,13 @@ export const Card = styled.main`
                    
             }
       
+`;
+
+
+export const Loading = styled.div`
+
+display:flex;
+flex:1;
+justify-content:center;
+
 `;

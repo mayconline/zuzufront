@@ -3,6 +3,7 @@ import React, {Component, Fragment} from 'react';
 import {Section} from './styled';
 import api from '../../Services/api';
 import Listcakes from '../../Components/Listcakes';
+import Menu from '../../Components/Menu';
 
 export default class Bolos extends Component{
 
@@ -23,6 +24,7 @@ export default class Bolos extends Component{
     render(){
         return(
             <Fragment>
+                <Menu/>
               <Section>
               <Listcakes bolos={this.state.listaBolos} like={this.handleLike}/>
               </Section>            

@@ -4,6 +4,7 @@ import {Card, Loading} from './styled';
 import InputForm from '../../Components/InputForm';
 import Upload from  '../../Components/Upload';
 import ProdPreview from '../../Components/ProdPreview';
+import Menu from '../../Components/Menu';
 
 import ReactLoading from 'react-loading';
 
@@ -94,6 +95,7 @@ export default class Cadastro extends Component{
     render(){
         return(
             <Fragment>
+                <Menu/>
 
                 {this.state.loading && (   
                    <Loading>

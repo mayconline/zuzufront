@@ -48,7 +48,7 @@ export const Card = styled.main`
             input {
                     border:none;         
                border-bottom:.1rem solid #999; 
-                text-transform: uppercase;
+               
                 outline:none;
                 border-radius:4px;
                 color:#999;
@@ -108,4 +108,13 @@ export const Card = styled.main`
                    
             }
       
+`;
+
+
+export const Loading = styled.div`
+
+display:flex;
+flex:1;
+justify-content:center;
+
 `;

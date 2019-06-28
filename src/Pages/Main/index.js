@@ -5,6 +5,7 @@ import SlideIntro from '../../Components/SlideIntro';
 import Jumbotron from '../../Components/Jumbotron';
 import Categorias from '../../Components/Categorias';
 import Delivery from '../../Components/Delivery';
+import Menu from '../../Components/Menu';
 import api from '../../Services/api';
 
 export default class Main extends Component{
@@ -20,7 +21,8 @@ export default class Main extends Component{
 
     render(){
         return(
-            <Fragment>           
+            <Fragment>
+                <Menu/>           
                 <SlideIntro fotos={this.state.fotos}/>
                 <Jumbotron/>
                 <Categorias/>

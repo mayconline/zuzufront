@@ -3,6 +3,7 @@ import api from '../../Services/api';
 
 import Listcakes from '../../Components/Listcakes';
 import {Section} from './styled';
+import Menu from '../../Components/Menu';
 
 export default class Search extends Component{
 
@@ -30,6 +31,7 @@ export default class Search extends Component{
 
         return(
             <Fragment>
+                <Menu/>
                 <Section>
               <Listcakes bolos={listSearch} like={this.handleLike}/>
               </Section>

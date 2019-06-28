@@ -1,15 +1,90 @@
 import React, {Fragment, Component} from 'react';
 import {Link}from 'react-router-dom';
 
-import {Container, Card} from './styled';
+import {Container, Card, Loading} from './styled';
 import InputForm from '../../Components/InputForm';
 
-
+import api from '../../Services/api';
 
 import {FaBroom} from "react-icons/fa";
 import { MdLockOutline ,MdMailOutline } from "react-icons/md";
 
+import ReactLoading from 'react-loading';
+
 export default class Login extends Component {
+
+    state={
+        usuario:'',
+        senha:'',  
+        loading:false
+    }
+
+    handleChange = (e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
+    
+    handleSubmit = async (e)=>{
+        e.preventDefault();
+
+       
+        //start loading ...
+        await this.setState({loading:true});
+
+        const {usuario, senha} = this.state;
+
+        if(!usuario.length || !senha.length ) {
+            
+            await this.setState({loading:false});
+            return alert('favor preencha os campos');
+
+        } 
+
+
+        try {
+            const obj = await {
+                usuario:usuario,
+                senha:senha
+            };
+
+            
+         const res =  await api.post('usuarios/login', obj)
+
+          await this.setState({
+            usuario:'',
+            senha:''
+        });
+          
+            await localStorage.setItem('@userToken', res.data.jwtToken);
+            await localStorage.setItem('@userId', res.data.user._id);
+            await localStorage.setItem('@userNome', res.data.user.nome);
+            
+
+          const logado = await localStorage.getItem('@userToken')
+            
+          if(!logado) {
+               return ;
+             } else this.props.history.push('/');
+
+           //end loading ...
+        await this.setState({loading:false});   
+    
+        }
+        catch(e){
+           
+             //end loading ...
+             this.setState({loading:false});  
+
+            alert('favor verifique os dados digitados')
+        }
+
+      
+
+    }
+
+
     render(){
         return(
             <Fragment>
@@ -18,10 +93,19 @@ export default class Login extends Component {
                      <h1>
                     <Link to="/"> <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1556741879/ZuzuCake/Logo/zuzuLogo_x0crgs.png' alt='Zuzu Cakes' /></Link>   
                     </h1>
+
+                    {this.state.loading && (
+                   
+                   <Loading>
+                        <ReactLoading type='bars' color='#fafafa' height={'10rem'} width={'10rem'} />    
+                   </Loading>
+                   
+               )} 
+
                     <Card>
                         <h2>SEJA BEM VINDO !!!</h2>
                      
-                        <form onSubmit={()=>{}}>
+                        <form onSubmit={this.handleSubmit}>
 
                         <label>
                         <MdMailOutline color={'#f00'} size={20}/>
@@ -33,8 +117,8 @@ export default class Login extends Component {
                             id = "usuario"
                             type="text"
                             name="usuario"
-                            value={()=>{}}
-                            onChange={()=>{}}
+                            value={this.state.usuario}
+                            onChange={this.handleChange}
                             placeholder="DIGITE SEU USUARIO"
                             /> 
 
@@ -48,9 +132,9 @@ export default class Login extends Component {
                             id = "senha"
                             type="password"
                             name="senha"
-                            value={()=>{}}
-                            onChange={()=>{}}
-                                 placeholder="DIGITE SUA SENHA"
+                            value={this.state.senha}
+                            onChange={this.handleChange}
+                            placeholder="DIGITE SUA SENHA"
                             />
                            
                           

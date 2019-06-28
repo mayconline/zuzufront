@@ -1,12 +1,97 @@
 import React, {Fragment, Component} from 'react';
 import {Link}from 'react-router-dom';
 
-import {Container, Card} from './styled';
+import {Container, Card, Loading} from './styled';
 import InputForm from '../../Components/InputForm';
+import ReactLoading from 'react-loading';
 
 import { MdLockOutline ,MdPersonOutline, MdMailOutline, MdAccountCircle} from "react-icons/md";
+import api from '../../Services/api';
 
 export default class Registro extends Component {
+
+    state={
+        nome:'',
+        usuario:'',
+        senha:'',
+        confirmasenha:'',
+        loading:false
+    }
+
+     
+    handleChange = (e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
+
+    handleSubmit = async (e)=>{
+        e.preventDefault();
+
+       
+        //start loading ...
+        await this.setState({loading:true});
+
+        const {nome, usuario, senha, confirmasenha} = this.state;
+
+        if(!nome.length || !usuario.length || !senha.length || !confirmasenha.length) {
+            
+            await this.setState({loading:false});
+            return alert('favor preencha os campos');
+
+        } 
+
+        if(senha!==confirmasenha) {
+            await this.setState({loading:false});
+            return alert('as senhas digitadas não são iguais');
+        }
+
+        try {
+            const obj = await {
+                nome:nome,
+                usuario:usuario,
+                senha:senha
+            };
+
+            
+            
+
+         const res =  await api.post('usuarios/registro', obj)
+
+          await this.setState({
+            nome:'',
+            usuario:'',
+            senha:''
+        });
+          
+            await localStorage.setItem('@userToken', res.data.jwtToken);
+            await localStorage.setItem('@userId', res.data.user._id);
+            await localStorage.setItem('@userNome', res.data.user.nome);
+
+          const logado = await localStorage.getItem('@userToken')
+            
+          if(!logado) {
+               return ;
+             } else this.props.history.push('/');
+
+           //end loading ...
+        await this.setState({loading:false});   
+    
+        }
+        catch(e){
+           
+             //end loading ...
+             this.setState({loading:false});  
+
+             return alert('ocorreu um erro ao tentar registrar, favor tente novamente')
+        }
+
+      
+
+    }
+
+
     render(){
         return(
             <Fragment>
@@ -15,10 +100,19 @@ export default class Registro extends Component {
                      <h1>
                     <Link to="/"> <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1556741879/ZuzuCake/Logo/zuzuLogo_x0crgs.png' alt='Zuzu Cakes' /></Link>   
                     </h1>
+
+                    {this.state.loading && (
+                   
+                   <Loading>
+                        <ReactLoading type='bars' color='#fafafa' height={'10rem'} width={'10rem'} />    
+                   </Loading>
+                   
+               )} 
+
                     <Card>
                         <h2>CRIE SUA CONTA</h2>
                      
-                        <form onSubmit={()=>{}}>
+                        <form onSubmit={this.handleSubmit}>
 
                         <label>
                         <MdPersonOutline color={'#f00'} size={20}/>
@@ -30,8 +124,8 @@ export default class Registro extends Component {
                             id = "nome"
                             type="text"
                             name="nome"
-                            value={()=>{}}
-                            onChange={()=>{}}
+                            value={this.state.nome}
+                            onChange={this.handleChange}
                             placeholder="DIGITE SEU NOME"
                             /> 
 
@@ -45,8 +139,8 @@ export default class Registro extends Component {
                             id = "usuario"
                             type="email"
                             name="usuario"
-                            value={()=>{}}
-                            onChange={()=>{}}
+                            value={this.state.usuario}
+                            onChange={this.handleChange}
                             placeholder="DIGITE SEU EMAIL"
                             /> 
 
@@ -60,9 +154,9 @@ export default class Registro extends Component {
                             id = "senha"
                             type="password"
                             name="senha"
-                            value={()=>{}}
-                            onChange={()=>{}}
-                                 placeholder="DIGITE SUA SENHA"
+                            value={this.state.senha}
+                            onChange={this.handleChange}
+                            placeholder="DIGITE SUA SENHA"
                             />
                            
                            <label>
@@ -75,9 +169,9 @@ export default class Registro extends Component {
                             id = "confirmasenha"
                             type="password"
                             name="confirmasenha"
-                            value={()=>{}}
-                            onChange={()=>{}}
-                                 placeholder="DIGITE SUA SENHA NOVAMENTE"
+                            value={this.state.confirmasenha}
+                            onChange={this.handleChange}
+                            placeholder="DIGITE SUA SENHA NOVAMENTE"
                             />
                           
                            
@@ -93,6 +187,9 @@ export default class Registro extends Component {
                     </Card>
                
                 </Container>
+
+           
+                
                 
               
             </Fragment>

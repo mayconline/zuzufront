@@ -10,7 +10,12 @@ export default class Menu extends Component {
 
 state={
   sideMenuOpen:false,
-  AdminBarOpen:false
+  AdminBarOpen:false,
+  usuarioLogado:{}
+}
+
+componentDidMount(){
+  this.usuarioLogado();
 }
   
 /*metodo para alterar visibilidade do sidemenu*/
@@ -35,6 +40,23 @@ AdminBar = ()=>{
 
 };
 
+usuarioLogado = async()=>{
+  const token = await localStorage.getItem('@userToken')
+  const nome = await localStorage.getItem('@userNome')
+  const id = await localStorage.getItem('@userId')
+
+  const obj = {
+    token,
+    nome,
+    id
+  }
+
+  await this.setState({
+    usuarioLogado:obj
+  })
+
+ 
+}
 
 render(){
  
@@ -44,7 +66,8 @@ render(){
             <Toolbar sideMenuClick={this.botaoToogleHandler}
               
               AdminOpen={this.AdminBar}
-              AdminBarState={this.state.AdminBarOpen}          
+              AdminBarState={this.state.AdminBarOpen}   
+              usuarioLogado={this.state.usuarioLogado}       
             />
            
            
