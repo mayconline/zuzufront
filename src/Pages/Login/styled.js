@@ -107,7 +107,52 @@ export const Card = styled.main`
 
                    
             }
-      
+
+            footer{
+                display:flex;
+                justify-content:space-between;
+                
+                align-items:center;                   
+
+                    .reset{
+                        display:flex;
+                        justify-content:start;
+
+                        color:#1a73e8;
+                        padding:1rem;
+                        margin:1rem;
+                        text-decoration:none;
+                        font-weight: bold;
+                        font-size:1rem;
+
+                        &:hover,:focus{
+                            background:rgba(255, 255, 255, 0.8);     
+                            border-radius:0.5rem; 
+                    }
+
+                    }
+            }
+            .register{
+                        
+                        color:#E54B4D;
+                        padding:0.5rem;
+                        display: inline-block;
+                        text-decoration:none;
+                        font-weight: bold;
+                        font-size:1rem;
+                        border:solid 0.1rem transparent; 
+                        margin-left:0.3rem;
+
+                        &:hover{
+                    background: #E54B4D;
+                    color:#fff;
+                    border:none;
+                    
+                    border:solid 0.1rem transparent; 
+                    border-radius:0.5rem;
+                }
+
+                    }
 `;
 
 

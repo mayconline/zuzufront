@@ -29,13 +29,20 @@ export default class Cadastro extends Component{
         await  this.setState({loading:true});
        
         try{
-            await api.delete(`/bolos/${_id}`);
+
+            //pegar o token do usuario //
+    const token = await localStorage.getItem('@userToken')
+    const headers ={'authorization':token}
+
+            await api.delete(`/bolos/${_id}`,{headers});
                 await this.setState({loading:false});
                  window.location.reload();        
            
         }  
-        catch{
+        catch(e){
              await   this.setState({loading:false});
+             return alert(`${e} Você não possui permissão para deletar produtos`);
+
         }
     }
 
@@ -59,37 +66,49 @@ export default class Cadastro extends Component{
         //start loading ...
         await this.setState({loading:true});
 
-        //pegando valor da tag do input, splitando e gerando um array//
-     let tag = await this.state.tag
-     let split = await tag.split(' ')
-        await this.setState({tags:split})
-      
-        //criando um formData add os campos //
-      const data = await new FormData();
-         await   data.append('file', this.state.file);
-         await   data.append('descricao', this.state.descricao);
+    try{
+ //pegando valor da tag do input, splitando e gerando um array//
+ let tag = await this.state.tag
+ let split = await tag.split(' ')
+    await this.setState({tags:split})
+  
+    //criando um formData add os campos //
+  const data = await new FormData();
+     await   data.append('file', this.state.file);
+     await   data.append('descricao', this.state.descricao);
 
-         //enviar um array com formData precisa utilizar o for //
-        for(let tag of this.state.tags){
-            await   data.append('tags', tag);
-            
-        }
-        //enviando pra api
-        await api.post('/bolos/cadastro', data)
+     //enviar um array com formData precisa utilizar o for //
+    for(let tag of this.state.tags){
+        await   data.append('tags', tag);
+        
+    }
 
-        //end loading ...
-        await this.setState({loading:false});
+    //pegar o token do usuario //
+    const token = await localStorage.getItem('@userToken')
+    const headers ={'authorization':token}
 
-        //zera os states
-        await this.setState({
-            file:null,
-            descricao:'',
-            tag:'',
-            tags:[]
-        })
+    //enviando pra api
+    await api.post('/bolos/cadastro', data, {headers} )
 
-        this.props.history.push('/bolos');
+    //end loading ...
+    await this.setState({loading:false});
 
+    //zera os states
+    await this.setState({
+        file:null,
+        descricao:'',
+        tag:'',
+        tags:[]
+    })
+
+    this.props.history.push('/bolos');
+
+    } catch(e){
+         //end loading ...
+             await this.setState({loading:false});
+        return alert(`${e} Você não possui permissão para cadastrar produtos`);
+    }
+       
     }
 
     render(){

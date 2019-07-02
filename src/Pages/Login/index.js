@@ -138,16 +138,26 @@ export default class Login extends Component {
                             />
                            
                           
-                           
+                         <footer>
+                         <p><Link to="/usuarios/recuperar-senha" className='reset' > Esqueceu a senha ?</Link></p>
 
-                         <button type="submit"> 
-                         <FaBroom color={'#fff'} size={30} />
-                         <span>ENTRAR</span>
-                         </button>
+
+                            <button type="submit"> 
+                               <FaBroom color={'#fff'} size={30} />
+                            <span>ENTRAR</span>
+                            </button>
+
+                             </footer> 
+                        
+                       
+
 
                         </form>
 
-                    
+                         <span>Não tem registro?</span><Link to="/registro" className='register' > Registre-se </Link>
+
+                     
+                        
                     </Card>
                
                 </Container>

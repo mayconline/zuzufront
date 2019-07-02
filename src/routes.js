@@ -7,6 +7,8 @@ import Cadastro from './Pages/Cadastro';
 import Search from './Pages/Search';
 import Login from './Pages/Login';
 import Registro from './Pages/Registro';
+import RecSenha from './Pages/RecSenha';
+import ResetSenha from './Pages/ResetSenha';
 
 function Routes(){
     return(
@@ -17,6 +19,8 @@ function Routes(){
             <Route path='/bolos' exact component={Bolos}/>  
             <Route path='/bolos/busca/:id' exact component={Search}/>  
             <Route path='/admin/bolos/cadastro' exact component={Cadastro}/>
+            <Route path='/usuarios/recuperar-senha' exact component={RecSenha}/>
+            <Route path='/usuarios/:idrec/resetar-senha' exact component={ResetSenha}/>
             
         </Switch>
         
