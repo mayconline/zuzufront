@@ -15,12 +15,13 @@ import { FaBirthdayCake,
      
 import SearchBar from '../SearchBar';
  
-const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado}) =>(
+const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut}) =>(
     <Fragment>
 
 
         {AdminBarState &&(
-            <AdminBar AdminClose={AdminOpen}/>
+            <AdminBar AdminClose={AdminOpen}
+                        logOut={logOut}/>
         )}
        
        
@@ -48,7 +49,7 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado}) =>(
 
          {usuarioLogado.nome &&(
              <Fragment>
-                <li> <Link to="/login"  className='login'> {` ${usuarioLogado.nome}`}</Link></li>
+                <li> <Link to="/"  className='login'> {` ${usuarioLogado.nome}`}</Link></li>                
                 <li>  <FaBars onClick={AdminOpen} color={'#E54B4D'} size={30}/></li>
              </Fragment>
                 

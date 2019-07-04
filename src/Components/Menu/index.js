@@ -6,12 +6,14 @@ import {Backdrop} from '../Backdrop';
 
 
 
+
 export default class Menu extends Component {
 
 state={
   sideMenuOpen:false,
   AdminBarOpen:false,
   usuarioLogado:{}
+ 
 }
 
 componentDidMount(){
@@ -45,11 +47,14 @@ usuarioLogado = async()=>{
   const nome = await localStorage.getItem('@userNome')
   const id = await localStorage.getItem('@userId')
 
+
   const obj = {
     token,
     nome,
     id
+    
   }
+
 
   await this.setState({
     usuarioLogado:obj
@@ -57,6 +62,14 @@ usuarioLogado = async()=>{
 
  
 }
+
+logOut = async()=>{
+
+   await localStorage.clear();
+   window.location.reload();   
+
+}
+
 
 render(){
  
@@ -67,7 +80,8 @@ render(){
               
               AdminOpen={this.AdminBar}
               AdminBarState={this.state.AdminBarOpen}   
-              usuarioLogado={this.state.usuarioLogado}       
+              usuarioLogado={this.state.usuarioLogado}  
+              logOut={this.logOut}     
             />
            
            
