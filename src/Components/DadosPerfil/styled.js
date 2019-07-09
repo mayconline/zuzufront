@@ -6,6 +6,12 @@ export const Container = styled.main`
     flex-wrap:wrap;
 `;
 
+export const Rating = styled.div`
+    display:flex;
+    justify-content:center;
+    padding:1rem;
+`;
+
 
 export const Depoimento = styled.aside`
 
@@ -20,11 +26,30 @@ min-width:350px;
         background:#fafafa;
         box-sizing: border-box;  
         box-shadow:4px 4px 24px 0 rgba(5,27,44,.2);    
-        margin:0.7rem 0;
-        
-        
-        border-right:solid 0.1rem transparent;
-        border-left:dotted 0.1rem #f00;
+        margin:0.7rem 0.5rem;
+        flex:1;
+        border-radius:0.5rem;
+       
+        h3{
+            color:#f00;
+            text-shadow: 1px 1px 1px orange;
+            text-align:center;
+            padding:1rem;
+            font-size:1.3rem;
+        }
+
+       p{
+        font-style:italic;
+        font-size:1.2rem;
+        padding:0.5rem;
+        text-align:center;
+      
+       }
+
+       cite{
+           padding-bottom:1rem;
+           text-transform:uppercase;
+       }
         &:hover{
             border-left:solid 0.1rem #f00;
         border-right:solid 0.1rem #f00;
@@ -96,9 +121,8 @@ export const Section = styled.section`
         box-sizing: border-box;  
         box-shadow:-3px -3px 24px 0 rgba(5,27,44,.2);      
         margin:0.7rem 0;
-        border-right:dotted 0.1rem #f00;
+        border-radius:0.5rem;
         
-        border-left:solid 0.1rem transparent;
      
         &:hover{
             border-left:solid 0.1rem #f00;
@@ -106,11 +130,13 @@ export const Section = styled.section`
         
         }
 
-        h1{
+        h2{
             color:#f00;
             text-shadow: 1px 1px 1px orange;
             text-align:center;
             padding:1rem;
+            font-size:1.3rem;
+            text-transform:uppercase;
             }
 
             img{
@@ -123,8 +149,15 @@ export const Section = styled.section`
             cursor:pointer;
             
         }
-    
 
+        strong{
+            text-transform:uppercase;
+        
+        }
+    
+        p{
+            padding-bottom:0.5rem;
+        }
     footer{
         margin:1rem auto;
 

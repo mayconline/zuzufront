@@ -49,7 +49,7 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut
 
          {usuarioLogado.nome &&(
              <Fragment>
-                <li> <Link to="/"  className='login'> {` ${usuarioLogado.nome}`}</Link></li>                
+                <li> <Link to={`/usuarios/${usuarioLogado.id}/perfil`}  className='login'> {` ${usuarioLogado.nome}`}</Link></li>                
                 <li>  <FaBars onClick={AdminOpen} color={'#E54B4D'} size={30}/></li>
              </Fragment>
                 

@@ -1,7 +1,13 @@
 import React, {Fragment} from 'react';
-import { Section, Container, Depoimento } from './styled';
+import { Section, Container, Depoimento, Rating } from './styled';
 
-const DadosPerfil = () =>(
+
+import {FaStar, FaRegStar} from "react-icons/fa";
+
+import {format} from 'date-fns';
+import pt from 'date-fns/locale/pt';
+
+const DadosPerfil = ({nota='5', usuario}) =>(
     <Fragment>
     
     <Container>
@@ -9,13 +15,13 @@ const DadosPerfil = () =>(
     <Section>
         
 
-        <h1>PERFIL</h1>
+        <h2>PERFIL</h2>
          <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg' alt='Avatar do Usuario' />   
-        <p><strong>ADMINISTRADOR</strong></p>
-        <p>Criado em: 01/01/2019</p>
+        <p><strong>{usuario.nome}</strong></p>
+        <p>Criado em {format(usuario.createdAt, 'DD/MM/YYYY', {locale:pt})} </p>
 
-        <p>EMAIL: xxxx@xxxx.com.br</p>
-        <p>SENHA: xxxxxxx</p>
+        <p>EMAIL: {usuario.usuario}</p>
+        <p>SENHA: xxxxxxxxxx</p>
 
         <footer>
         <button className='editar'>Editar</button>
@@ -25,9 +31,76 @@ const DadosPerfil = () =>(
 
 </Section>
 <Depoimento>
-<h1>DEPOIMENTO</h1>
-         
-        <p>"Bolo maravilhoso, muito gostoso e bem feito, amei"</p>
+<h3>DEPOIMENTO</h3>
+
+
+
+{nota==='0' &&(
+    <Rating>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    </Rating>
+    )}
+
+
+{nota==='1' &&(
+    <Rating>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    </Rating>
+    )}
+
+{nota==='2' &&(
+    <Rating>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    </Rating>
+    )}
+
+{nota==='3' &&(
+    <Rating>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    <FaRegStar color={'#fbec5d'} size={30}/>
+    </Rating>
+    )}
+    
+
+
+{nota==='4' &&(
+<Rating>
+<FaStar color={'#fbec5d'} size={30}/>
+<FaStar color={'#fbec5d'} size={30}/>
+<FaStar color={'#fbec5d'} size={30}/>
+<FaStar color={'#fbec5d'} size={30}/>
+<FaRegStar color={'#fbec5d'} size={30}/>
+</Rating>
+)}
+
+{nota==='5' &&(
+    <Rating>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    <FaStar color={'#fbec5d'} size={30}/>
+    </Rating>
+    )}
+
+
+
+        <p>"Bolo maravilhoso, muito gostoso e bem feito, amei" </p><cite> - {usuario.nome}</cite>
 
         <footer>
         <button className='editar'>Editar</button>
