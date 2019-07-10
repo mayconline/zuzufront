@@ -7,20 +7,20 @@ import {FaStar, FaRegStar} from "react-icons/fa";
 import {format} from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
-const DadosPerfil = ({nota='5', usuario}) =>(
+const DadosPerfil = ({usuario, depoimento}) =>(
     <Fragment>
     
     <Container>
         
     <Section>
-        
+       
 
         <h2>PERFIL</h2>
          <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg' alt='Avatar do Usuario' />   
-        <p><strong>{usuario.nome}</strong></p>
-        <p>Criado em {format(usuario.createdAt, 'DD/MM/YYYY', {locale:pt})} </p>
+        <p><strong>{usuario && usuario.nome}</strong></p>
+        <p>Criado em {format(usuario && usuario.createdAt, 'DD/MM/YYYY', {locale:pt})} </p>
 
-        <p>EMAIL: {usuario.usuario}</p>
+        <p>EMAIL: {usuario && usuario.usuario}</p>
         <p>SENHA: xxxxxxxxxx</p>
 
         <footer>
@@ -35,7 +35,7 @@ const DadosPerfil = ({nota='5', usuario}) =>(
 
 
 
-{nota==='0' &&(
+{depoimento && depoimento.nota===0 &&(
     <Rating>
     <FaRegStar color={'#fbec5d'} size={30}/>
     <FaRegStar color={'#fbec5d'} size={30}/>
@@ -46,7 +46,7 @@ const DadosPerfil = ({nota='5', usuario}) =>(
     )}
 
 
-{nota==='1' &&(
+{depoimento && depoimento.nota===1 &&(
     <Rating>
     <FaStar color={'#fbec5d'} size={30}/>
     <FaRegStar color={'#fbec5d'} size={30}/>
@@ -56,7 +56,7 @@ const DadosPerfil = ({nota='5', usuario}) =>(
     </Rating>
     )}
 
-{nota==='2' &&(
+{depoimento && depoimento.nota===2 &&(
     <Rating>
     <FaStar color={'#fbec5d'} size={30}/>
     <FaStar color={'#fbec5d'} size={30}/>
@@ -66,7 +66,7 @@ const DadosPerfil = ({nota='5', usuario}) =>(
     </Rating>
     )}
 
-{nota==='3' &&(
+{depoimento && depoimento.nota===3 &&(
     <Rating>
     <FaStar color={'#fbec5d'} size={30}/>
     <FaStar color={'#fbec5d'} size={30}/>
@@ -78,7 +78,7 @@ const DadosPerfil = ({nota='5', usuario}) =>(
     
 
 
-{nota==='4' &&(
+{depoimento && depoimento.nota===4 &&(
 <Rating>
 <FaStar color={'#fbec5d'} size={30}/>
 <FaStar color={'#fbec5d'} size={30}/>
@@ -88,7 +88,7 @@ const DadosPerfil = ({nota='5', usuario}) =>(
 </Rating>
 )}
 
-{nota==='5' &&(
+{depoimento && depoimento.nota===5 &&(
     <Rating>
     <FaStar color={'#fbec5d'} size={30}/>
     <FaStar color={'#fbec5d'} size={30}/>
@@ -99,8 +99,9 @@ const DadosPerfil = ({nota='5', usuario}) =>(
     )}
 
 
-
-        <p>"Bolo maravilhoso, muito gostoso e bem feito, amei" </p><cite> - {usuario.nome}</cite>
+        <p>"{depoimento && depoimento.descricao ? depoimento.descricao:'Deixe seu Comentário, é muito importante para nós'}" 
+        </p>
+        <cite> - {depoimento.idusuario && depoimento.idusuario.nome}</cite>
 
         <footer>
         <button className='editar'>Editar</button>

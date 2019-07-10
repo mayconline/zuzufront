@@ -7,7 +7,8 @@ import api from '../../Services/api';
 export default class PerfilUser extends Component {
 
     state={
-        usuario:[]
+        usuario:[],
+        depoimentos:[]
         
     }
 
@@ -19,7 +20,17 @@ export default class PerfilUser extends Component {
 
        try{
            const res = await api.get(`/usuarios/${_id}`,{headers})
-           this.setState({usuario:res.data});
+             this.setState({usuario:res.data});
+
+           const depo = await api.get('/depoimentos')
+
+           for(let depoimentos of depo.data){
+                if(depoimentos.idusuario._id===_id){
+                    this.setState({depoimentos})
+                }
+        }
+
+            
                   
 
        }catch(e){            
@@ -32,7 +43,9 @@ export default class PerfilUser extends Component {
         return(
             <Fragment>
                 <Menu />
-                <DadosPerfil usuario={this.state.usuario}/>
+                <DadosPerfil usuario={this.state.usuario}
+                    depoimento={this.state.depoimentos}
+                />
             </Fragment>
               )
     }
