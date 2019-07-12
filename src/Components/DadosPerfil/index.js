@@ -8,7 +8,7 @@ import {FaStar, FaRegStar} from "react-icons/fa";
 import {format} from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
-const DadosPerfil = ({usuario, depoimento, deletarDepo}) =>(
+const DadosPerfil = ({usuario, depoimento, deletarDepo, deletarConta}) =>(
     <Fragment>
     
     <Container>
@@ -25,8 +25,8 @@ const DadosPerfil = ({usuario, depoimento, deletarDepo}) =>(
         <p>SENHA: xxxxxxxxxx</p>
 
         <footer>
-       <Link to='/depoimentos/criar'><button className='editar'>Editar</button></Link> 
-       <button className='excluir'>Excluir</button>            
+       <Link to={`/usuarios/${usuario._id}/alterar`}><button className='editar'>Editar</button></Link> 
+       <button className='excluir' onClick={()=>deletarConta(usuario._id)}>Excluir</button>           
         </footer>
         
 
@@ -114,7 +114,7 @@ const DadosPerfil = ({usuario, depoimento, deletarDepo}) =>(
             </Fragment>
             
         ):(
-            <Link to='/depoimentos/criar'><button className='editar'>Criar</button></Link> 
+            <Link to='/depoimentos/criar'><button className='criar'>Criar</button></Link> 
        ) }
         
 

@@ -4,6 +4,7 @@ import Menu from '../../Components/Menu';
 import DadosPerfil from '../../Components/DadosPerfil';
 import api from '../../Services/api';
 
+
 export default class PerfilUser extends Component {
 
     state={
@@ -40,6 +41,28 @@ export default class PerfilUser extends Component {
    }
 
 
+   deletarConta = async(_id)=>{
+        await  this.setState({loading:true});
+
+        try{
+
+              //pegar o token do usuario //
+            const token = await localStorage.getItem('@userToken')
+            const headers ={'authorization':token}
+
+             await api.delete(`/usuarios/${_id}`,{headers});
+                await localStorage.clear();
+                     await this.setState({loading:false});
+                         this.props.history.push(`/`);
+                
+             return alert(`Deletado com sucesso`);
+
+        }catch(e) {
+            await   this.setState({loading:false});
+         return alert(`${e} Você não possui permissão para deletar`);
+        }
+   }
+
      
    deletarDepo = async (_id)=>{
         
@@ -71,6 +94,7 @@ const headers ={'authorization':token}
                 <DadosPerfil usuario={this.state.usuario}
                     depoimento={this.state.depoimentos}
                     deletarDepo={this.deletarDepo}
+                    deletarConta={this.deletarConta}
                 />
             </Fragment>
               )

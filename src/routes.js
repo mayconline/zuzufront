@@ -24,6 +24,7 @@ function Routes(){
             <Route path='/usuarios/recuperar-senha' exact component={RecSenha}/>
             <Route path='/usuarios/:idrec/resetar-senha' exact component={ResetSenha}/>
             <Route path='/usuarios/:id/perfil' exact component={PerfilUser}/>
+            <Route path='/usuarios/:id/alterar' exact component={Registro}/>
             <Route path='/depoimentos/criar' exact component={CadastroDepoimento}/>
             <Route path='/depoimentos/alterar/:id' exact component={CadastroDepoimento}/>
             

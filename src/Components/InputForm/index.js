@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {JSS} from './styled';
 
-const InputForm = ({label, id, type, name, value, onChange, placeholder})=>(
+const InputForm = ({label, id, type, name, value, onChange, placeholder, min, max})=>(
     <Fragment>
     <JSS>
         <label htmlFor={id}> {label} </label>
@@ -11,6 +11,8 @@ const InputForm = ({label, id, type, name, value, onChange, placeholder})=>(
         value={value} 
         onChange={onChange}
         placeholder={placeholder}
+        min={min}
+        max={max}
         />             
     </JSS>       
     </Fragment>

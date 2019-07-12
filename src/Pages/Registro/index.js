@@ -15,9 +15,31 @@ export default class Registro extends Component {
         usuario:'',
         senha:'',
         confirmasenha:'',
-        loading:false
+        loading:false,
+        id:''
+        
     }
 
+  
+    async componentDidMount(){
+        
+        const token= await localStorage.getItem('@userToken')
+        const headers ={'authorization':token}
+        const {id} = this.props.match.params;
+
+       try{
+           const res = await api.get(`/usuarios/${id}`,{headers})
+             this.setState({
+                 id,
+                 usuario:res.data.usuario,
+                 nome:res.data.nome
+             });
+           
+        }catch(e){            
+            return e;
+       }
+       
+   }
      
     handleChange = (e)=>{
         this.setState({
@@ -35,7 +57,7 @@ export default class Registro extends Component {
 
         const {nome, usuario, senha, confirmasenha} = this.state;
 
-        if(!nome.length || !usuario.length || !senha.length || !confirmasenha.length) {
+        if(!nome || !usuario || !senha || !confirmasenha) {
             
             await this.setState({loading:false});
             return alert('favor preencha os campos');
@@ -48,26 +70,28 @@ export default class Registro extends Component {
         }
 
         try {
-            const obj = await {
-                nome:nome,
-                usuario:usuario,
-                senha:senha
-            };
+                       
+      if(!this.state.id) {
 
-            
-            
+        // usuario nao registrado , chama o registar //
 
-         const res =  await api.post('usuarios/registro', obj)
+        const obj = await {
+            nome:nome,
+            usuario:usuario,
+            senha:senha
+        };
 
-          await this.setState({
+        const res = await api.post('usuarios/registro', obj)
+
+        await this.setState({
             nome:'',
             usuario:'',
             senha:''
         });
           
             await localStorage.setItem('@userToken', res.data.jwtToken);
-            await localStorage.setItem('@userId', res.data.user._id);
-            await localStorage.setItem('@userNome', res.data.user.nome);
+            await localStorage.setItem('@userId', res.data.registro._id);
+            await localStorage.setItem('@userNome', res.data.registro.nome);
 
           const logado = await localStorage.getItem('@userToken')
             
@@ -77,14 +101,49 @@ export default class Registro extends Component {
 
            //end loading ...
         await this.setState({loading:false});   
-    
-        }
-        catch(e){
+
+
+      } else {
+            // usuario ja tem registro, chama o alterar usuario //
+        const token= await localStorage.getItem('@userToken')
+        const headers ={'authorization':token}
+
+        const obj = await {
+            nome:nome,
+            usuario:usuario,
+            senha:senha
+        };
+
+        const res =   await api.put(`/usuarios/${this.state.id}/alterar`, obj,{headers})
+
+        await this.setState({
+            nome:'',
+            usuario:'',
+            senha:''
+        });
+
+        await localStorage.setItem('@userToken', res.data.jwtToken);
+        await localStorage.setItem('@userId', res.data.alterado._id);
+        await localStorage.setItem('@userNome', res.data.alterado.nome);
+
+        const logado = await localStorage.getItem('@userToken')
+            
+          if(!logado) {
+               return ;
+             } else this.props.history.push(`/usuarios/${this.state.id}/perfil`);
+
+           //end loading ...
+        await this.setState({loading:false});   
+
+
+      }
+        
+    }  catch(e){
            
              //end loading ...
              this.setState({loading:false});  
 
-             return alert('ocorreu um erro ao tentar registrar, favor tente novamente')
+             return alert(` ${e} ocorreu um erro ao tentar registrar, favor tente novamente`)
         }
 
       
@@ -175,11 +234,20 @@ export default class Registro extends Component {
                             />
                           
                            
+                    {!this.state.id ? (
+                        <button type="submit"> 
+                        <MdAccountCircle color={'#fff'} size={30} />
+                        <span>CRIAR CONTA</span>
+                        </button>
 
-                         <button type="submit"> 
-                         <MdAccountCircle color={'#fff'} size={30} />
-                         <span>CRIAR CONTA</span>
-                         </button>
+                    ):(
+                        <button type="submit"> 
+                        <MdAccountCircle color={'#fff'} size={30} />
+                        <span>ALTERAR</span>
+                        </button>
+
+                    )} 
+                         
 
                         </form>
 

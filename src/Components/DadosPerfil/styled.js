@@ -103,6 +103,26 @@ min-width:350px;
                         border-radius:0.2rem;
                     }
                }
+
+
+              .criar{
+                background: transparent;
+                color:#E54B4D;
+                display: inline-block;
+                border:solid 0.1rem #E54B4D;
+                border-radius:0.2rem;
+                text-transform:uppercase;  
+                text-decoration: none;                  
+                text-align: center;
+                font-weight:bold;
+                margin-right: 0.5rem; 
+                padding: 0.375rem 0.5625rem;
+                cursor:pointer;
+                 &:hover{
+                    background: #E54B4D;
+                    color:#fff;
+                }
+              }
         }
 
 

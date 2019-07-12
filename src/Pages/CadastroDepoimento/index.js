@@ -13,7 +13,7 @@ export default class CadastroDepoimento extends Component{
 
     state={
         loading:false,
-        nota:0,
+        nota:5,
         descricao:'',
         depoimento:[],
         id:''    
@@ -136,7 +136,9 @@ export default class CadastroDepoimento extends Component{
                   name="nota"
                   value={this.state.nota}
                   onChange={this.handleChange}
-                  placeholder="Descrição"
+                  placeholder="Insira uma nota de 0 a 5"
+                  min="0" 
+                  max="5"
               /> 
               
                 <InputForm 
@@ -151,8 +153,13 @@ export default class CadastroDepoimento extends Component{
 
                
              
+        {!this.state.id ?
+        <button type="submit">CRIAR DEPOIMENTO</button> :
+        <button type="submit">EDITAR DEPOIMENTO</button>
+            }
 
-                <button type="submit">CRIAR DEPOIMENTO</button>
+                
+               
 
             </form>
        
