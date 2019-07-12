@@ -39,12 +39,38 @@ export default class PerfilUser extends Component {
        
    }
 
+
+     
+   deletarDepo = async (_id)=>{
+        
+    await  this.setState({loading:true});
+   
+    try{
+
+        //pegar o token do usuario //
+const token = await localStorage.getItem('@userToken')
+const headers ={'authorization':token}
+
+        await api.delete(`/depoimentos/${_id}`,{headers});
+            await this.setState({loading:false});
+             window.location.reload();        
+       
+    }  
+    catch(e){
+         await   this.setState({loading:false});
+         return alert(`${e} Você não possui permissão para deletar`);
+
+    }
+}
+
+
     render(){
         return(
             <Fragment>
                 <Menu />
                 <DadosPerfil usuario={this.state.usuario}
                     depoimento={this.state.depoimentos}
+                    deletarDepo={this.deletarDepo}
                 />
             </Fragment>
               )

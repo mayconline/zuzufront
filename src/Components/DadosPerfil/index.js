@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import { Section, Container, Depoimento, Rating } from './styled';
+import {Link} from 'react-router-dom';
 
 
 import {FaStar, FaRegStar} from "react-icons/fa";
@@ -7,7 +8,7 @@ import {FaStar, FaRegStar} from "react-icons/fa";
 import {format} from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
-const DadosPerfil = ({usuario, depoimento}) =>(
+const DadosPerfil = ({usuario, depoimento, deletarDepo}) =>(
     <Fragment>
     
     <Container>
@@ -24,8 +25,8 @@ const DadosPerfil = ({usuario, depoimento}) =>(
         <p>SENHA: xxxxxxxxxx</p>
 
         <footer>
-        <button className='editar'>Editar</button>
-        <button className='excluir'>Excluir</button>               
+       <Link to='/depoimentos/criar'><button className='editar'>Editar</button></Link> 
+       <button className='excluir'>Excluir</button>            
         </footer>
         
 
@@ -99,13 +100,25 @@ const DadosPerfil = ({usuario, depoimento}) =>(
     )}
 
 
+
         <p>"{depoimento && depoimento.descricao ? depoimento.descricao:'Deixe seu Comentário, é muito importante para nós'}" 
         </p>
         <cite> - {depoimento.idusuario && depoimento.idusuario.nome}</cite>
 
         <footer>
-        <button className='editar'>Editar</button>
-        <button className='excluir'>Excluir</button>               
+       
+        {depoimento.descricao ? (
+            <Fragment>
+                 <Link to={`/depoimentos/alterar/${depoimento._id}`}><button className='editar'>Editar</button></Link> 
+                    <button className='excluir' onClick={()=>deletarDepo(depoimento._id)}>Excluir</button> 
+            </Fragment>
+            
+        ):(
+            <Link to='/depoimentos/criar'><button className='editar'>Criar</button></Link> 
+       ) }
+        
+
+                     
         </footer>
         
 </Depoimento>

@@ -10,6 +10,7 @@ import Registro from './Pages/Registro';
 import RecSenha from './Pages/RecSenha';
 import ResetSenha from './Pages/ResetSenha';
 import PerfilUser from './Pages/PerfilUser';
+import CadastroDepoimento from './Pages/CadastroDepoimento';
 
 function Routes(){
     return(
@@ -23,6 +24,8 @@ function Routes(){
             <Route path='/usuarios/recuperar-senha' exact component={RecSenha}/>
             <Route path='/usuarios/:idrec/resetar-senha' exact component={ResetSenha}/>
             <Route path='/usuarios/:id/perfil' exact component={PerfilUser}/>
+            <Route path='/depoimentos/criar' exact component={CadastroDepoimento}/>
+            <Route path='/depoimentos/alterar/:id' exact component={CadastroDepoimento}/>
             
         </Switch>
         
