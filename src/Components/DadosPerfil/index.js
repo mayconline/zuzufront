@@ -14,10 +14,14 @@ const DadosPerfil = ({usuario, depoimento, deletarDepo, deletarConta}) =>(
     <Container>
         
     <Section>
-       
-
-        <h2>PERFIL</h2>
-         <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg' alt='Avatar do Usuario' />   
+   
+        <h2>PERFIL</h2>           
+    {
+        usuario.avatar ?
+            <Link to={`/avataruser/${usuario._id}/alterar`}><img src={usuario.avatar.url} alt='Avatar do Usuario' /></Link> 
+                 :
+           <Link to={`/avataruser/${usuario._id}/cadastro`}> <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg' alt='Avatar do Usuario' /> </Link> 
+     }
         <p><strong>{usuario && usuario.nome}</strong></p>
         <p>Criado em {format(usuario && usuario.createdAt, 'DD/MM/YYYY', {locale:pt})} </p>
 

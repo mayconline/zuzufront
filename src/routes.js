@@ -11,6 +11,7 @@ import RecSenha from './Pages/RecSenha';
 import ResetSenha from './Pages/ResetSenha';
 import PerfilUser from './Pages/PerfilUser';
 import CadastroDepoimento from './Pages/CadastroDepoimento';
+import CadastroAvatar from './Pages/CadastroAvatar';
 
 function Routes(){
     return(
@@ -27,6 +28,8 @@ function Routes(){
             <Route path='/usuarios/:id/alterar' exact component={Registro}/>
             <Route path='/depoimentos/criar' exact component={CadastroDepoimento}/>
             <Route path='/depoimentos/alterar/:id' exact component={CadastroDepoimento}/>
+            <Route path='/avataruser/:id/cadastro' exact component={CadastroAvatar}/>
+            <Route path='/avataruser/:id/alterar' exact component={CadastroAvatar}/>
             
         </Switch>
         

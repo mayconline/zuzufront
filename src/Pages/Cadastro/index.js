@@ -8,6 +8,7 @@ import Menu from '../../Components/Menu';
 
 import ReactLoading from 'react-loading';
 
+
 export default class Cadastro extends Component{
 
     state={

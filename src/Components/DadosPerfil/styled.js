@@ -106,10 +106,10 @@ min-width:350px;
 
 
               .criar{
-                background: transparent;
-                color:#E54B4D;
+                background:green;
+                color: #fff;
                 display: inline-block;
-                border:solid 0.1rem #E54B4D;
+                border:solid 0.1rem green;
                 border-radius:0.2rem;
                 text-transform:uppercase;  
                 text-decoration: none;                  
@@ -119,14 +119,15 @@ min-width:350px;
                 padding: 0.375rem 0.5625rem;
                 cursor:pointer;
                  &:hover{
-                    background: #E54B4D;
-                    color:#fff;
+                    background: transparent;
+                        color:green;
                 }
               }
         }
 
 
 `;
+
 
 export const Section = styled.section`
        
@@ -178,6 +179,9 @@ export const Section = styled.section`
         p{
             padding-bottom:0.5rem;
         }
+
+
+
     footer{
         margin:1rem auto;
 
