@@ -66,7 +66,7 @@ export default class Login extends Component {
             
           if(!logado) {
                return ;
-             } else this.props.history.push('/');
+             } else this.props.history.push(`/usuarios/${res.data.user._id}/perfil`);
 
            //end loading ...
         await this.setState({loading:false});   

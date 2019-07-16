@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 export const Header = styled.section`
   
-  
+   
+  background: #e52d27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
  
        button.slick-arrow, .slick-next, .slick-prev{
         
@@ -28,12 +33,7 @@ export const Depoimento = styled.section`
         align-content:center;
         align-items:center;
         flex-direction:column;
-        
-        background: #e52d27;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+       
         
         
        &:hover{
@@ -53,7 +53,7 @@ background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Fi
         font-size:1.2rem;
         padding:0.5rem;
         text-align:center;
-      
+        color:#fff;
        }
 
        cite{
@@ -61,6 +61,7 @@ background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Fi
            text-transform:uppercase;
            display:block;
            text-align:center;
+           color:#fbec5d;
        }
     
         
@@ -70,8 +71,7 @@ background: linear-gradient(to left, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Fi
             text-decoration:none;
             font-size:2rem;
             font-weight:bold;
-            border-radius:50%;
-            cursor:pointer;
+            border-radius:50%;           
             margin:0 auto;
             
         }

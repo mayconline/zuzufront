@@ -7,6 +7,7 @@ import Categorias from '../../Components/Categorias';
 import Delivery from '../../Components/Delivery';
 import Menu from '../../Components/Menu';
 import Depoimentos from '../../Components/Depoimentos';
+import Footer from '../../Components/Footer';
 import api from '../../Services/api';
 
 import ReactLoading from 'react-loading';
@@ -16,21 +17,24 @@ export default class Main extends Component{
     state={
         fotos:[],
         depoimentos:[],
-        loading:false
+        loading:false,
+        usuarioLogado:''
     }
 
     async componentDidMount(){
          //start loading ...
          await this.setState({loading:true});
+         const usuarioLogado =  await localStorage.getItem('@userId');
 
         try{
 
             const depo = await api.get('/depoimentos')
             const res = await api.get('/bolos/slide')
 
-            
-           
-            this.setState({ fotos:res.data, depoimentos:depo.data });
+          
+            this.setState({ fotos:res.data, depoimentos:depo.data,
+                usuarioLogado:usuarioLogado
+            });
                 
             //end loading ...
                  await this.setState({loading:false});
@@ -57,8 +61,9 @@ export default class Main extends Component{
                 <SlideIntro fotos={this.state.fotos}/>
                 <Jumbotron/>
                 <Categorias/>
-                <Delivery/>
+                <Delivery usuarioLogado={this.state.usuarioLogado}/>
                 <Depoimentos depoimentos={this.state.depoimentos}/>
+                <Footer/>
             </Fragment>
         )
     }

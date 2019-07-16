@@ -62,6 +62,10 @@ export const Steps = styled.article`
             margin-bottom:0.5rem;
         }
 
+        .avaliar{
+          cursor: pointer;
+        }
+
 
   &:hover{
     

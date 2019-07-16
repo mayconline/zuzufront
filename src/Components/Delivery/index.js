@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-
+import {Link} from 'react-router-dom';
 import {Title, Steps} from './styled';
 import {Container, Row ,Col} from '../Grid';
 
@@ -7,7 +7,7 @@ import {FaWhatsapp,FaFortAwesome,
     FaBirthdayCake, FaUsers, FaRegCalendarAlt,
     FaShippingFast, FaSmileBeam, FaStar} from 'react-icons/fa';
 
-const Delivery = ()=>(
+const Delivery = ({usuarioLogado})=>(
     <Fragment>
 
         <Container>
@@ -94,10 +94,13 @@ const Delivery = ()=>(
                     </Steps>
                 </Col>
 
-                <Col col='3'>
-                    <Steps>
-                        <FaStar size={48} color={'#ffcb0c'}/>
-                        <h4>Avalie-nos</h4>
+                <Col col='3' >
+                    <Steps >
+                        <Link to={`/usuarios/${usuarioLogado}/perfil`}> 
+                        <FaStar size={48} color={'#ffcb0c'} className='avaliar' />
+                        </Link>
+                       
+                        <h4 >Avalie-nos</h4>
                          <p>Ajude-nos a melhorar nossos serviços nos avaliando, é muito importante para nós</p>
                     </Steps>
                 </Col>

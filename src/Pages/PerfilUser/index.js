@@ -4,24 +4,30 @@ import Menu from '../../Components/Menu';
 import DadosPerfil from '../../Components/DadosPerfil';
 import api from '../../Services/api';
 
+import {Redirect} from 'react-router-dom';
 
 export default class PerfilUser extends Component {
 
     state={
         usuario:[],
-        depoimentos:[]
-        
+        depoimentos:[],
+       
     }
 
     async componentDidMount(){
         
+        const _id = await localStorage.getItem('@userId')
         const token= await localStorage.getItem('@userToken')
         const headers ={'authorization':token}
-        const _id = await localStorage.getItem('@userId')
+        
+        
 
        try{
            const res = await api.get(`/usuarios/${_id}`,{headers})
-             this.setState({usuario:res.data});
+             this.setState({usuario:res.data });
+
+            
+           
 
            const depo = await api.get('/depoimentos')
 
@@ -90,12 +96,22 @@ const headers ={'authorization':token}
     render(){
         return(
             <Fragment>
+
+                {!localStorage.getItem('@userId') ? 
+                (
+                 <Redirect to={`/login`} />                  
+                    ):(
+                <Fragment>
                 <Menu />
                 <DadosPerfil usuario={this.state.usuario}
                     depoimento={this.state.depoimentos}
                     deletarDepo={this.deletarDepo}
                     deletarConta={this.deletarConta}
                 />
+                </Fragment>
+            )           
+            }
+               
             </Fragment>
               )
     }

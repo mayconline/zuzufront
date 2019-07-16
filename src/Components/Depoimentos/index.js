@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Slider  from 'react-slick';
 
-import {Depoimento, Container, Rating, Header} from './styled';
+import {Depoimento, Rating, Header} from './styled';
 import {FaStar, FaRegStar} from "react-icons/fa";
 
 export default class Depoimentos extends Component {
@@ -14,34 +14,16 @@ export default class Depoimentos extends Component {
           
             focusOnSelect: true,
             pauseOnHover: true,
-            lazyLoad: true,
             adaptiveHeight: true,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 5000,
             cssEase: "linear",
-                    dots: false,
+                    dots: true,
                     infinite: true,
-                    speed: 500,
+                    speed: 1000,
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    initialSlide: 0,
-                        responsive:[
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                  slidesToShow: 1,
-                                  slidesToScroll: 1,
-                                
-                                }
-                              },                            
-                                 {
-                                breakpoint: 480,
-                                settings: {
-                                  slidesToShow: 1,
-                                  slidesToScroll: 1
-                                }
-                              }
-                        ]
+                    initialSlide: 0                       
                   };    
 
         return(
@@ -125,7 +107,7 @@ export default class Depoimentos extends Component {
     </Rating>
     )}
                                     
-                                     <p>{depoimento.descricao} </p>                                      
+                                     <p>"{depoimento.descricao}"</p>                                      
                                       <cite> - {depoimento.idusuario.nome}</cite>  
                                          
                                           
