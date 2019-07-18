@@ -8,19 +8,19 @@ import { FaRegHeart, FaPaperclip } from "react-icons/fa";
 
 
 const Listcakes = ({bolos, like}) =>{
-
+  
     return(
         <Fragment>
             {bolos && 
         
         bolos.map(bolo=>(
-           
+        
             <Content key={bolo._id}>                    
             <CardContent>
-        
+            
             <figure >
             <img src={bolo.url} alt={bolo.descricao} />  
-                
+               
                 <section>
                      <figcaption>
                         <h3>{bolo.descricao}</h3>
