@@ -125,6 +125,7 @@ export default class Registro extends Component {
         await localStorage.setItem('@userToken', res.data.jwtToken);
         await localStorage.setItem('@userId', res.data.alterado._id);
         await localStorage.setItem('@userNome', res.data.alterado.nome);
+        await localStorage.setItem('@staff', res.data.alterado.staff);
 
         const logado = await localStorage.getItem('@userToken')
             

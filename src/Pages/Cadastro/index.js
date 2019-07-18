@@ -7,6 +7,7 @@ import ProdPreview from '../../Components/ProdPreview';
 import Menu from '../../Components/Menu';
 
 import ReactLoading from 'react-loading';
+import {Redirect} from 'react-router-dom';
 
 
 export default class Cadastro extends Component{
@@ -115,60 +116,76 @@ export default class Cadastro extends Component{
     render(){
         return(
             <Fragment>
-                <Menu/>
 
-                {this.state.loading && (   
-                   <Loading>
-                        <ReactLoading type='bars' color='#f00' height={'10rem'} width={'10rem'} />    
-                   </Loading>     
-                     )} 
+            {/*se tiver @staff permitida, acessa a pagina, se nao tiver redireciona pro login*/ }
 
-         <Card>
-             
-            <form onSubmit={this.handleSubmit}>
-
-                <Upload onUpload={this.handleImage}
-                    file={this.state.file}
-                />
-              
-                <InputForm 
-                  label="descricao"
-                  id = "descricao"
-                  type="text"
-                  name="descricao"
-                  value={this.state.descricao}
-                  onChange={this.handleChange}
-                  placeholder="Descrição"
-              /> 
-
-                <InputForm 
-                  label="tags"
-                  id = "tags"
-                  type="text"
-                  name="tag"
-                  value={this.state.tag}
-                  onChange={this.handleChange}
-                  placeholder="Descrição"
-              /> 
-             
-
-                <button type="submit">CADASTRAR</button>
-
-            </form>
-       
-            </Card>
-
-            <section>
-            <ProdPreview 
-            bolos={this.state.listaBolos}
-            deletar={this.deletarBolo}
-                />
-            </section>
-            
-
-            </Fragment>
-        
+        {!localStorage.getItem('@staff') || localStorage.getItem('@staff')!=='admin' ? 
+            (
+             <Redirect to={`/login`} />                  
+                )
+                :
+                (
+                    <Fragment>
+                         <Menu/>
+    
+                    {this.state.loading && (   
+                       <Loading>
+                            <ReactLoading type='bars' color='#f00' height={'10rem'} width={'10rem'} />    
+                       </Loading>     
+                         )} 
+    
+             <Card>
+                 
+                <form onSubmit={this.handleSubmit}>
+    
+                    <Upload onUpload={this.handleImage}
+                        file={this.state.file}
+                    />
+                  
+                    <InputForm 
+                      label="descricao"
+                      id = "descricao"
+                      type="text"
+                      name="descricao"
+                      value={this.state.descricao}
+                      onChange={this.handleChange}
+                      placeholder="Descrição"
+                  /> 
+    
+                    <InputForm 
+                      label="tags"
+                      id = "tags"
+                      type="text"
+                      name="tag"
+                      value={this.state.tag}
+                      onChange={this.handleChange}
+                      placeholder="Descrição"
+                  /> 
+                 
+    
+                    <button type="submit">CADASTRAR</button>
+    
+                </form>
            
-       )
+                </Card>
+    
+                <section>
+                <ProdPreview 
+                bolos={this.state.listaBolos}
+                deletar={this.deletarBolo}
+                    />
+                </section>
+                
+    
+                </Fragment>
+            
+                )
+           
+           
+       
     }
+        </Fragment> 
+        ) 
+    }
+       
 }

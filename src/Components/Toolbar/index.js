@@ -11,7 +11,7 @@ import { FaBirthdayCake,
      FaRegAddressCard, FaRegCommentDots,
       FaFacebookF,
      FaInstagram, FaWhatsapp, 
-     FaBars} from "react-icons/fa";
+     FaBars,FaPowerOff} from "react-icons/fa";
      
 import SearchBar from '../SearchBar';
  
@@ -25,6 +25,7 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut
         )}
        
        
+
        {!AdminBarState &&(
             
         <TopHeader >
@@ -50,7 +51,13 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut
          {usuarioLogado.nome &&(
              <Fragment>
                 <li> <Link to={`/usuarios/${usuarioLogado.id}/perfil`}  className='login'> {` ${usuarioLogado.nome}`}</Link></li>                
-                <li>  <FaBars onClick={AdminOpen} color={'#E54B4D'} size={30}/></li>
+               
+               {usuarioLogado.staff === 'admin' ?  
+                <li><FaBars onClick={AdminOpen} color={'#E54B4D'} size={30}/></li>
+                :
+                <li><FaPowerOff onClick={logOut} size={25} color={'#E54B4D'}/></li>
+                }
+               
              </Fragment>
                 
              )}

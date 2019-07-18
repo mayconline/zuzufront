@@ -69,7 +69,10 @@ border-top: 0.25rem solid orange ;
                 padding: 0;
                 display: flex;
                 flex-wrap: wrap;
+                
+                
 
+               
                                 .selected{
                                     background:linear-gradient(160deg, #FAD961 0%, #F76B1C 100%);
                                   }

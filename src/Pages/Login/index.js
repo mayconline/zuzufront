@@ -60,6 +60,7 @@ export default class Login extends Component {
             await localStorage.setItem('@userToken', res.data.jwtToken);
             await localStorage.setItem('@userId', res.data.user._id);
             await localStorage.setItem('@userNome', res.data.user.nome);
+            await localStorage.setItem('@staff', res.data.user.staff);
             
 
           const logado = await localStorage.getItem('@userToken')

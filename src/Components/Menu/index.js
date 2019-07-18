@@ -4,7 +4,7 @@ import Toolbar from '../Toolbar';
 import SideMenu from '../SideMenu';
 import {Backdrop} from '../Backdrop';
 
-
+import api from '../../Services/api';
 
 
 export default class Menu extends Component {
@@ -16,8 +16,8 @@ state={
  
 }
 
-componentDidMount(){
-  this.usuarioLogado();
+async componentDidMount(){
+ await  this.usuarioLogado();
 }
   
 /*metodo para alterar visibilidade do sidemenu*/
@@ -47,13 +47,18 @@ usuarioLogado = async()=>{
   const nome = await localStorage.getItem('@userNome')
   const id = await localStorage.getItem('@userId')
 
+  const headers ={'authorization':token}
+  const res = await api.get(`/usuarios/${id}`,{headers})
+  
 
   const obj = {
     token,
     nome,
-    id
+    id,
+    staff:res.data.staff
     
   }
+
 
 
   await this.setState({
@@ -73,7 +78,8 @@ logOut = async()=>{
 
 render(){
  
-      return(
+  
+  return(
         <Fragment>
         
             <Toolbar sideMenuClick={this.botaoToogleHandler}
