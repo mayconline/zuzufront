@@ -4,7 +4,6 @@ import Menu from '../../Components/Menu';
 import DadosPerfil from '../../Components/DadosPerfil';
 import api from '../../Services/api';
 
-import {Redirect} from 'react-router-dom';
 
 export default class PerfilUser extends Component {
 
@@ -96,22 +95,12 @@ const headers ={'authorization':token}
     render(){
         return(
             <Fragment>
-
-                {!localStorage.getItem('@userId') ? 
-                (
-                 <Redirect to={`/login`} />                  
-                    ):(
-                <Fragment>
-                <Menu />
+               <Menu />
                 <DadosPerfil usuario={this.state.usuario}
                     depoimento={this.state.depoimentos}
                     deletarDepo={this.deletarDepo}
                     deletarConta={this.deletarConta}
-                />
-                </Fragment>
-            )           
-            }
-               
+                />             
             </Fragment>
               )
     }

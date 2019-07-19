@@ -14,7 +14,7 @@ const ProdPreview = ({bolos, deletar}) =>(
 
 
 <Fragment>
-{console.log(bolos)}
+
     <Container>
 
     {  !!bolos.length &&
@@ -30,7 +30,7 @@ const ProdPreview = ({bolos, deletar}) =>(
                     <strong>{bolo.descricao}</strong>
 
                     {bolo.tags.map(tag=>(
-                        <strong  className='tags'>{tag}</strong>  
+                        <strong key={Math.random()} className='tags'>{tag}</strong>  
                     ))}
 
                     <span>Há {distanceInWords(bolo.createdAt, new Date(), {locale:pt})} </span> 

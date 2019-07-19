@@ -116,17 +116,7 @@ export default class Cadastro extends Component{
     render(){
         return(
             <Fragment>
-
-            {/*se tiver @staff permitida, acessa a pagina, se nao tiver redireciona pro login*/ }
-
-        {!localStorage.getItem('@staff') || localStorage.getItem('@staff')!=='admin' ? 
-            (
-             <Redirect to={`/login`} />                  
-                )
-                :
-                (
-                    <Fragment>
-                         <Menu/>
+                 <Menu/>
     
                     {this.state.loading && (   
                        <Loading>
@@ -175,15 +165,7 @@ export default class Cadastro extends Component{
                 deletar={this.deletarBolo}
                     />
                 </section>
-                
-    
-                </Fragment>
-            
-                )
-           
-           
-       
-    }
+
         </Fragment> 
         ) 
     }
