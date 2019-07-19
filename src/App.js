@@ -3,10 +3,7 @@ import Routes from './routes';
 import {BrowserRouter} from 'react-router-dom';
 import GlobalStyle from './Styles/global';
 
-
-//import Menu from './Components/Menu';
-
-function App() {
+export default function App() {
   return (
     
     <BrowserRouter>
@@ -17,4 +14,3 @@ function App() {
   );
 }
 
-export default App;

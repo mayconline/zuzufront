@@ -17,7 +17,7 @@ export default function Bolos(){
     const [loading, setLoading] = useState(false)
    
 
-    useEffect( () => { ArrayBolos(); },[alterado]);
+    useEffect( () => { ArrayBolos();},[alterado]);
 
      
     const ArrayBolos = async ()=>{

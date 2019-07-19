@@ -1,8 +1,7 @@
 import React, {Component, Fragment} from 'react';
 
 import Toolbar from '../Toolbar';
-import SideMenu from '../SideMenu';
-import {Backdrop} from '../Backdrop';
+
 
 import api from '../../Services/api';
 
@@ -10,7 +9,7 @@ import api from '../../Services/api';
 export default class Menu extends Component {
 
 state={
-  sideMenuOpen:false,
+ 
   AdminBarOpen:false,
   usuarioLogado:{}
  
@@ -20,17 +19,7 @@ async componentDidMount(){
  await  this.usuarioLogado();
 }
   
-/*metodo para alterar visibilidade do sidemenu*/
 
-botaoToogleHandler =()=>{
-  this.setState((prevState)=>{
-    return {sideMenuOpen:!prevState.sideMenuOpen};
-  })
-};
-
-backdropHandler=()=>{
-  this.setState({sideMenuOpen:false});
-};
 
 
 
@@ -82,7 +71,7 @@ render(){
   return(
         <Fragment>
         
-            <Toolbar sideMenuClick={this.botaoToogleHandler}
+            <Toolbar 
               
               AdminOpen={this.AdminBar}
               AdminBarState={this.state.AdminBarOpen}   
@@ -90,13 +79,6 @@ render(){
               logOut={this.logOut}     
             />
            
-           
-            <SideMenu show={this.state.sideMenuOpen} />
-             
-             {this.state.sideMenuOpen &&
-            <Backdrop onClick={this.backdropHandler}/>
-                }
-            
         </Fragment>    
       )
       }

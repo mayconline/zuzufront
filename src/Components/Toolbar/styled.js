@@ -16,11 +16,12 @@ border-top: 0.25rem solid orange ;
 
 
 
+
     nav{
       
        display:flex;
        justify-content:space-between;
-       
+       flex-wrap:wrap;
     align-items: center;
     
     @media (max-width:1024px) {
@@ -60,7 +61,8 @@ border-top: 0.25rem solid orange ;
              justify-content:flex-end;
              justify-self: flex-end;
              align-items:center;
-           
+             flex-wrap:wrap;
+                margin:0;
            
 
                     ul {
@@ -70,7 +72,7 @@ border-top: 0.25rem solid orange ;
                 display: flex;
                 flex-wrap: wrap;
                 
-                
+               
 
                
                                 .selected{
@@ -82,7 +84,7 @@ border-top: 0.25rem solid orange ;
                                  text-decoration: none;
                                  display: block;
                                  text-align: center;
-                                 padding:1.5rem;
+                                 padding:1rem;
                                  font-size:1rem;
                                  font-weight:bold;
                                 
@@ -95,34 +97,38 @@ border-top: 0.25rem solid orange ;
                                    
                                   }
 
+                                  p{
+                                    font-size:0.75rem;
+                                    display: block;
+                                    margin:0 auto;
+                                    padding:.1rem;
+                                        
+                                  }         
+
+                                                        
                                   
                                 }
 
-
                     }
 
-                    @media (max-width:1024px){
-                        display:none;
+                   @media (max-width:1024px){
+                      display:flex;
+                      justify-content:center;
+                      flex-wrap:wrap;
+                             &::before{
+                                content:'';
+                                width:100%;
+                                height:0.25rem;
+                                background:#D1913C;
+                                display:block;
+                               
+                  
+                                 }  
+                        
                     }
 
-
-
-            }     
-            
-          
-
-        
-
-        
-
-           
-               
-
+            }               
     }
-
-
-
-
 
 `;
 

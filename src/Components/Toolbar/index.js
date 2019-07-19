@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import{Link, NavLink} from 'react-router-dom';
 
 
-import {Header, TopHeader, ToogleMenu}  from './styled';
+import {Header, TopHeader}  from './styled';
 import AdminBar from '../AdminBar';
 
 
@@ -15,7 +15,7 @@ import { FaBirthdayCake,
      
 import SearchBar from '../SearchBar';
  
-const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut}) =>(
+const Toolbar = ({AdminOpen, AdminBarState, usuarioLogado, logOut}) =>(
     <Fragment>
 
 
@@ -61,18 +61,11 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut
              </Fragment>
                 
              )}
-            
-
-
-            
-           
-            
-      
+                 
         </ul>
         </div>           
 </TopHeader> 
-
-      
+     
        )}
 
         <Header> 
@@ -83,6 +76,7 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut
                  </div>
           
     <SearchBar />
+
 
           {/*activeClassName=selected coloca a classe automatica*/}
                    
@@ -95,23 +89,8 @@ const Toolbar = ({AdminOpen, AdminBarState, sideMenuClick, usuarioLogado, logOut
             </div>
   
         </nav>
-        
-       
-      
+             
     </Header>
-
-    <ToogleMenu >
-            <button onClick={sideMenuClick}>
-            <FaBars color={'#E54B4D'} size={30}/>
-            <p>MENU</p>
-            </button>
-        
-        
-        </ToogleMenu>
-    
-           
-        
-
     </Fragment>
 
 );

@@ -53,6 +53,8 @@ export default class RecSenha extends Component{
                     
             alert(`Link enviado para ${usuario}, se não chegar na caixa de entrada
                     favor verificar a caixa de span`)
+
+            await this.props.history.push('/login')
     
         }
         catch(e){

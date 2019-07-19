@@ -29,7 +29,7 @@ export const Card = styled.main`
         border-radius:0.5rem;
         padding:1rem;       
         min-width:350px;
-        max-width:900px;
+        max-width:300px;
         display:block;
         margin: 1rem auto;
         background:#fafafa;

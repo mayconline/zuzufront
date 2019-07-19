@@ -7,7 +7,7 @@ import ProdPreview from '../../Components/ProdPreview';
 import Menu from '../../Components/Menu';
 
 import ReactLoading from 'react-loading';
-import {Redirect} from 'react-router-dom';
+
 
 
 export default class Cadastro extends Component{
