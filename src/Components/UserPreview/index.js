@@ -10,7 +10,7 @@ import{MdDeleteForever, MdBuild} from 'react-icons/md';
 
 
 
-export default function UserPreview({usuarios, altStaff}){
+export default function UserPreview({usuarios, altstaff}){
 
     return(
         <Fragment>
@@ -40,7 +40,7 @@ export default function UserPreview({usuarios, altStaff}){
               
 
               <button type='button'>
-              <MdBuild onClick={()=>{altStaff(usuario._id)}} style={{marginRight:8}}  size={24} color='#03f'/>
+              <MdBuild onClick={()=>{altstaff(usuario._id)}} style={{marginRight:8}}  size={24} color='#03f'/>
               </button> 
            
               <button type='button'>

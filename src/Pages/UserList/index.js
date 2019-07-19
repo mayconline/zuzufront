@@ -18,8 +18,8 @@ export default function UserList(){
     const ArrayUsuarios = async ()=>{
         //start loading ...
         await setLoading(true);
-        const token= await localStorage.getItem('@userToken')
-        const headers ={'authorization':token}
+      const token= await localStorage.getItem('@userToken')
+      const headers = await {'authorization':token}
 
         try{
             const res = await api.get('/usuarios', {headers})
@@ -34,27 +34,32 @@ export default function UserList(){
         }
     }
 
-    const altStaff = async (_id)=>{
+   async function altstaff(_id){
 
      
         //start loading ...
         await setLoading(true);
 
+        
         const token= await localStorage.getItem('@userToken')
-        const headers ={'authorization':token}
+        const headers = await {'authorization':token}
 
         try{
-            
-          await api.post(`/usuarios/${_id}/altstaff`, {headers})
+    
+          await api.put(`/usuarios/${_id}/altstaff`, {},{headers})
            
              await  setAlterado(!alterado)
-            console.log(alterado)
         
+                //end loading...
+             await setLoading(false);
 
+             alert('Perfil do usuario foi Alterado')
+
+           
         }catch(e){
              //end loading...
              await setLoading(false);
-             return e;
+             return console.log(`erro ao tentar alterar = ${e}`)
             
         }
 
@@ -71,7 +76,7 @@ export default function UserList(){
                    </Loading>     
                      )} 
 
-            <UserPreview usuarios={usuarios} altStaff={altStaff}/>
+            <UserPreview usuarios={usuarios} altstaff={altstaff}/>
         </Fragment>
     )
 }
