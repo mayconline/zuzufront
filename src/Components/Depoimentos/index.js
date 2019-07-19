@@ -41,7 +41,12 @@ export default class Depoimentos extends Component {
 
                             <Depoimento key={depoimento._id}>
                                
-                                <img src={depoimento.idusuario.avatar.url} alt='avatar dos usuarios' />
+                               { depoimento.idusuario.avatar ?
+                                <img src={ depoimento.idusuario.avatar.url} alt='avatar dos usuarios' />
+                                :
+                                <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg' alt='Avatar do Usuario' />
+                             }
+                                
 
                                 
 {depoimento && depoimento.nota===0 &&(
@@ -107,8 +112,8 @@ export default class Depoimentos extends Component {
     </Rating>
     )}
                                     
-                                     <p>"{depoimento.descricao}"</p>                                      
-                                      <cite> - {depoimento.idusuario.nome}</cite>  
+                                     <p>"{depoimento.descricao && depoimento.descricao}"</p>                                      
+                                      <cite> - {depoimento.idusuario && depoimento.idusuario.nome}</cite>  
                                          
                                           
                                     

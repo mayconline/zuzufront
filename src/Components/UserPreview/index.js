@@ -10,7 +10,7 @@ import{MdDeleteForever, MdBuild} from 'react-icons/md';
 
 
 
-export default function UserPreview({usuarios, altstaff}){
+export default function UserPreview({usuarios, altstaff, deleteuser}){
 
     return(
         <Fragment>
@@ -23,7 +23,7 @@ export default function UserPreview({usuarios, altstaff}){
 
             <FileInfo >                   
                       <Fragment >
-                           <Preview src={usuario.avatar.url}/>  
+                           <Preview src={ usuario.avatar && usuario.avatar.url}/>  
                       </Fragment>
 
                   <div>
@@ -44,7 +44,7 @@ export default function UserPreview({usuarios, altstaff}){
               </button> 
            
               <button type='button'>
-              <MdDeleteForever onClick={()=>{}} style={{marginRight:8}}  size={24} color='#f00'/>
+              <MdDeleteForever onClick={()=>{deleteuser(usuario._id)}} style={{marginRight:8}}  size={24} color='#f00'/>
               </button>                         
            </div>              
             </li>   

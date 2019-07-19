@@ -61,10 +61,32 @@ export default function UserList(){
              await setLoading(false);
              return console.log(`erro ao tentar alterar = ${e}`)
             
-        }
+        }      
+    }
 
-    
-       
+    async function deleteuser(_id){
+             //start loading ...
+        await setLoading(true);
+        
+        const token= await localStorage.getItem('@userToken')
+        const headers = await {'authorization':token}
+
+        try{
+            await api.delete(`/usuarios/${_id}`,{headers})
+            await  setAlterado(!alterado)
+
+            //end loading...
+            await setLoading(false);
+
+            alert('Usuario Deletado com Sucesso')
+
+
+        }
+        catch(e){
+             //end loading...
+             await setLoading(false);
+             return console.log(`erro ao tentar deletar = ${e}`)
+        }
     }
 
     return(
@@ -76,7 +98,10 @@ export default function UserList(){
                    </Loading>     
                      )} 
 
-            <UserPreview usuarios={usuarios} altstaff={altstaff}/>
+            <UserPreview usuarios={usuarios}
+             altstaff={altstaff}
+             deleteuser={deleteuser}             
+             />
         </Fragment>
     )
 }
