@@ -208,7 +208,7 @@ padding:0;
                 text-align: center;
                 font-weight:bold;
                 margin-right: 0.5rem; 
-
+                text-transform:uppercase;
                padding: 0.375rem 0.5625rem;
 
                 &:hover{
@@ -224,53 +224,3 @@ padding:0;
 `;
 
 
-
-export const ToogleMenu = styled.header`
-    
-    
-    
-    margin:0.5rem;
-    display:flex;
-    justify-content:center;
-    
-     
-    
-    button{
-        display:flex;
-        justify-content:center;
-        cursor: pointer;
-        padding: 0.25rem 0.25rem;
-        background:#fff;
-        width:100%;
-
-        border:solid 0.1rem #ebedef; 
-        border-radius:0.25rem;
-
-        p{
-            font-size: 1.5rem; 
-            color: #E54B4D;
-            font-weight:bold;
-            
-        }
-
-        
-
-        &:hover{
-            background: #E54B4D;
-            p{
-                color:#fff;
-            }
-         path{
-            color:#fff;
-            }
-        }
-    }
-        
-
-    @media(min-width:1025px){
-        
-             display: none;
-                
-             }  
-
-`;

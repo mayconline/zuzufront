@@ -10,6 +10,7 @@ import ReactLoading from 'react-loading';
 
 
 
+
 export default function Bolos(){
 
     const [bolos, setBolos] = useState([])
@@ -40,6 +41,7 @@ export default function Bolos(){
       
 
     const  handleLike = async (_id) =>{
+      
       await  api.post(`/bolos/${_id}/like`);
           await  setAlterado(!alterado)
     }

@@ -14,7 +14,7 @@ import ResetSenha from './Pages/ResetSenha';
 import PerfilUser from './Pages/PerfilUser';
 import CadastroDepoimento from './Pages/CadastroDepoimento';
 import CadastroAvatar from './Pages/CadastroAvatar';
-
+import UserList from './Pages/UserList';
 
 
 const PrivateRoute = ({component:Component, ...rest}) =>(
@@ -62,7 +62,8 @@ function Routes(){
             <PrivateRoute path='/avataruser/:id/cadastro' exact component={CadastroAvatar}/>
             <PrivateRoute path='/avataruser/:id/alterar' exact component={CadastroAvatar}/>
 
-            <AdminRoute path='/admin/bolos/cadastro' exact component={Cadastro}/>           
+            <AdminRoute path='/admin/bolos/cadastro' exact component={Cadastro}/>   
+            <AdminRoute path='/admin/user/cadastro' exact component={UserList}/>            
         </Switch>
         
     );

@@ -11,6 +11,7 @@ import filesize from 'filesize';
 
 const ProdPreview = ({bolos, deletar}) =>(
 
+    
 
 
 <Fragment>
@@ -52,7 +53,7 @@ const ProdPreview = ({bolos, deletar}) =>(
               <button type='button'>
               <MdDeleteForever onClick={()=>{deletar(bolo._id)}} style={{marginRight:8}}  size={24} color='#f00'/>
               </button>          
-                
+               
            </div>              
 
             </li>   

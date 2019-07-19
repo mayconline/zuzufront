@@ -21,6 +21,7 @@ export default class Cadastro extends Component{
         listaBolos:[]
     };
 
+    
     async componentDidMount(){
         const res = await api.get('/bolos');
             this.setState({listaBolos:res.data});
@@ -139,7 +140,7 @@ export default class Cadastro extends Component{
                       name="descricao"
                       value={this.state.descricao}
                       onChange={this.handleChange}
-                      placeholder="Descrição"
+                      placeholder="Digite uma descricao para foto"
                   /> 
     
                     <InputForm 
@@ -149,7 +150,7 @@ export default class Cadastro extends Component{
                       name="tag"
                       value={this.state.tag}
                       onChange={this.handleChange}
-                      placeholder="Descrição"
+                      placeholder="Palavras chaves pros clientes procurarem por elas, exemplo: TIMES FUTEBOL CHANTILY CHOCOLATE ..."
                   /> 
                  
     
