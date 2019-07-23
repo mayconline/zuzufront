@@ -15,7 +15,7 @@ import { FaBirthdayCake,
      
 import SearchBar from '../SearchBar';
  
-const Toolbar = ({AdminOpen, AdminBarState, usuarioLogado, logOut}) =>(
+const Toolbar = ({AdminOpen, AdminBarState, usuarioLogado, logOut, whatsapp}) =>(
     <Fragment>
 
 
@@ -26,13 +26,14 @@ const Toolbar = ({AdminOpen, AdminBarState, usuarioLogado, logOut}) =>(
        
        
 
+
        {!AdminBarState &&(
             
         <TopHeader >
         <div className='social_bar'>                
         <a href="https://web.facebook.com/zulmira.serafim" rel='noopener noreferrer' target='_blank'><FaFacebookF color={'#000'} size={20}/></a>
         <a href="https://www.instagram.com/zulmira_serafim" rel='noopener noreferrer' target='_blank'><FaInstagram color={'#000'} size={20}/></a>
-        <a href="https://web.whatsapp.com/send?phone=5521967524431&text=ola" rel='noopener noreferrer' target='_blank'><FaWhatsapp color={'#000'} size={20}/></a>          
+        <a href={whatsapp} rel='noopener noreferrer' target='_blank'><FaWhatsapp color={'#000'} size={20}/></a>          
         </div>
 
 

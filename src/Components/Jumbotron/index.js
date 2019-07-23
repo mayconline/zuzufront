@@ -2,46 +2,23 @@ import React, {Component, Fragment} from 'react';
 import {Title} from './styled';
 
 import {FaWhatsapp} from 'react-icons/fa';
-
+import {detectar_mobile} from '../../Services/whats';
 
 export default class Jumbotron extends Component {   
 
     state={
-        whatsapp:'',
-        whatsappWeb:'https://web.whatsapp.com/send?phone=5521967524431&text=ola',
-        whatsappMobile:'https://wa.me/5521967524431?text=Ola'
+        whatsapp:''   
     }
 
    
     async componentDidMount(){
        
-     await this.detectar_mobile(); 
-       
+    const res =  await detectar_mobile(); 
+        this.setState({whatsapp:res})
     };
 
 
-    detectar_mobile = () =>{ 
-        if( navigator.userAgent.match(/Android/i)
-        || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/iPhone/i)
-        || navigator.userAgent.match(/iPad/i)
-        || navigator.userAgent.match(/iPod/i)
-        || navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i)
-        ){
-           return  this.setState({whatsapp:this.state.whatsappMobile})
-           
-          
-         }
-        else {
-           return  this.setState({whatsapp:this.state.whatsappWeb})
-         }
-       }
-
-
    render(){
-
-   
 
     return(
         <Fragment>

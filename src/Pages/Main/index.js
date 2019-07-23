@@ -9,6 +9,7 @@ import Menu from '../../Components/Menu';
 import Depoimentos from '../../Components/Depoimentos';
 import Footer from '../../Components/Footer';
 import api from '../../Services/api';
+import {detectar_mobile} from '../../Services/whats';
 
 import ReactLoading from 'react-loading';
 
@@ -18,13 +19,21 @@ export default class Main extends Component{
         fotos:[],
         depoimentos:[],
         loading:false,
-        usuarioLogado:''
+        usuarioLogado:'',
+        whatsapp:''
     }
 
     async componentDidMount(){
          //start loading ...
          await this.setState({loading:true});
          const usuarioLogado =  await localStorage.getItem('@userId');
+        
+            this.setState({usuarioLogado:usuarioLogado})
+
+            const whats = await detectar_mobile(); 
+                this.setState({whatsapp:whats})
+             
+        
 
         try{
 
@@ -32,9 +41,8 @@ export default class Main extends Component{
             const res = await api.get('/bolos/slide')
 
           
-            this.setState({ fotos:res.data, depoimentos:depo.data,
-                usuarioLogado:usuarioLogado
-            });
+           await this.setState({ fotos:res.data, depoimentos:depo.data});
+           await this.setState({usuarioLogado:usuarioLogado});
                 
             //end loading ...
                  await this.setState({loading:false});
@@ -63,7 +71,7 @@ export default class Main extends Component{
                 <Categorias/>
                 <Delivery usuarioLogado={this.state.usuarioLogado}/>
                 <Depoimentos depoimentos={this.state.depoimentos}/>
-                <Footer/>
+                <Footer whatsapp={this.state.whatsapp}/>
             </Fragment>
         )
     }
