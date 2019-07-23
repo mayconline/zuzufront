@@ -28,7 +28,7 @@ export default class Main extends Component{
 
         try{
 
-            const depo = await api.get('/depoimentos')
+            const depo = await api.get('/depoimentos/active')
             const res = await api.get('/bolos/slide')
 
           
