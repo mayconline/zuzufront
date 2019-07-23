@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /usuarios/
+Disallow: /depoimentos/
+Disallow: /avataruser/
+
