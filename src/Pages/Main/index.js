@@ -10,6 +10,7 @@ import Depoimentos from '../../Components/Depoimentos';
 import Footer from '../../Components/Footer';
 import api from '../../Services/api';
 import {detectar_mobile} from '../../Services/whats';
+import {detectar_mobile_f} from '../../Services/face';
 
 import ReactLoading from 'react-loading';
 
@@ -20,7 +21,8 @@ export default class Main extends Component{
         depoimentos:[],
         loading:false,
         usuarioLogado:'',
-        whatsapp:''
+        whatsapp:'',
+        facebook:''
     }
 
     async componentDidMount(){
@@ -31,7 +33,8 @@ export default class Main extends Component{
             this.setState({usuarioLogado:usuarioLogado})
 
             const whats = await detectar_mobile(); 
-                this.setState({whatsapp:whats})
+            const face = await detectar_mobile_f();
+                this.setState({whatsapp:whats, facebook:face})
              
         
 
@@ -71,7 +74,11 @@ export default class Main extends Component{
                 <Categorias/>
                 <Delivery usuarioLogado={this.state.usuarioLogado}/>
                 <Depoimentos depoimentos={this.state.depoimentos}/>
-                <Footer whatsapp={this.state.whatsapp}/>
+                <Footer 
+                whatsapp={this.state.whatsapp}
+                facebook={this.state.facebook}
+                
+                />
             </Fragment>
         )
     }

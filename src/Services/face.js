@@ -6,7 +6,7 @@ export const detectar_mobile_f = async ()=>{
     || navigator.userAgent.match(/iPod/i)
     || navigator.userAgent.match(/BlackBerry/i)
     || navigator.userAgent.match(/Windows Phone/i)
-    ) return 'https://m.facebook.com/zulmira.serafim'
+    ) return 'fb://profile/100002138455607'
 
     else return 'https://web.facebook.com/zulmira.serafim'
 }
