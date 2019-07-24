@@ -1,42 +1,40 @@
-import React, {Component, Fragment} from 'react';
+import React, {Fragment, useState, useEffect} from 'react';
 import api from '../../Services/api';
 
 import Listcakes from '../../Components/Listcakes';
 import {Section} from './styled';
 import Menu from '../../Components/Menu';
 
-export default class Search extends Component{
+export default function Search({match}){
 
-    state={
-        listSearch:[]
-    }
+    const [ListSearch, setListSearch] = useState([])
+    const [alterado, setAlterado] = useState(false)
 
+    useEffect( ()=>{ ArrayBusca(); },[alterado])
 
-    async componentDidMount(){
-       const {id} = await this.props.match.params;
+   const ArrayBusca = async ()=>{
+      const {id} = await match.params;
       
         const res = await api.get(`/bolos/busca/${id}`);
-        await this.setState({listSearch:res.data});
+        await setListSearch(res.data);
         
     }
 
     
-    handleLike = (_id) =>{
-        api.post(`/bolos/${_id}/like`);
+   async function handleLike(_id){
+    await  api.post(`/bolos/${_id}/like`);
+       
+     await  setAlterado(!alterado)
     }
 
-    render(){
-
-        const {listSearch} = this.state
 
         return(
             <Fragment>
                 <Menu/>
                 <Section>
-              <Listcakes bolos={listSearch} like={this.handleLike}/>
+              <Listcakes bolos={ListSearch} like={handleLike}/>
               </Section>
             </Fragment>
            
         )
     }
-}

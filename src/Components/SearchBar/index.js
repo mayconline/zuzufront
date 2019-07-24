@@ -19,6 +19,7 @@ export default class SearchBar extends Component{
     handleSubmit=(e)=>{
         e.preventDefault();
         window.location.href = `https://zuzucakes.netlify.com/bolos/busca/${this.state.search}`;
+       // window.location.href = `http://localhost:3000/bolos/busca/${this.state.search}`;
     }
 
     render(){
