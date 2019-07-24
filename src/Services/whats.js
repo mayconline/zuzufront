@@ -6,7 +6,7 @@ export const detectar_mobile = async ()=>{
     || navigator.userAgent.match(/iPod/i)
     || navigator.userAgent.match(/BlackBerry/i)
     || navigator.userAgent.match(/Windows Phone/i)
-    ) return 'https://wa.me/5521997322497?text=Ola'
+    ) return 'https://wa.me/5521967524431?text=Ola'
 
-    else return 'https://web.whatsapp.com/send?phone=5521997322497&text=ola'
+    else return 'https://web.whatsapp.com/send?phone=5521967524431&text=ola'
 }

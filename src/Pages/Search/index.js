@@ -10,7 +10,9 @@ export default function Search({match}){
     const [ListSearch, setListSearch] = useState([])
     const [alterado, setAlterado] = useState(false)
 
-    useEffect( ()=>{ ArrayBusca(); },[alterado])
+    useEffect( ()=>{ ArrayBusca(); 
+          // eslint-disable-next-line
+    },[alterado])
 
    const ArrayBusca = async ()=>{
       const {id} = await match.params;
