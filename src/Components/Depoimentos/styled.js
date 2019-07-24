@@ -25,7 +25,7 @@ export const Rating = styled.div`
     padding:1rem;
 `;
 
-export const Depoimento = styled.section`
+export const Depoimento = styled.article`
 
         
         display:flex;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const Container = styled.header`
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
@@ -9,7 +9,7 @@ export const Container = styled.section`
    
   
 `;
-export const Row = styled.div`
+export const Row = styled.section`
     width:100%;
     height:auto;
     float:left;
@@ -25,7 +25,7 @@ export const Row = styled.div`
 
 `;
 
-export const Col = styled.div`
+export const Col = styled.article`
     float:left;
     padding: .25rem;
     min-height:1px;

@@ -30,14 +30,14 @@ const Toolbar = ({AdminOpen, AdminBarState, usuarioLogado, logOut, whatsapp, fac
        {!AdminBarState &&(
             
         <TopHeader >
-        <div className='social_bar'>                
+        <nav className='social_bar'>                
         <a href={facebook} rel='noopener noreferrer' target='_blank'><FaFacebookF color={'#000'} size={20}/></a>
         <a href="https://www.instagram.com/zulmira_serafim" rel='noopener noreferrer' target='_blank'><FaInstagram color={'#000'} size={20}/></a>
         <a href={whatsapp} rel='noopener noreferrer' target='_blank'><FaWhatsapp color={'#000'} size={20}/></a>          
-        </div>
+        </nav>
 
 
-        <div className='admin_area'>
+        <nav className='admin_area'>
         <ul>
 
             {!usuarioLogado.nome && (
@@ -64,7 +64,7 @@ const Toolbar = ({AdminOpen, AdminBarState, usuarioLogado, logOut, whatsapp, fac
              )}
                  
         </ul>
-        </div>           
+        </nav>           
 </TopHeader> 
      
        )}

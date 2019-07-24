@@ -132,7 +132,7 @@ border-top: 0.25rem solid orange ;
 
 `;
 
-export const TopHeader = styled.div`
+export const TopHeader = styled.header`
 
 background:#fff;
 display:flex;

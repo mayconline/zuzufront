@@ -7,7 +7,7 @@ import {FaWhatsapp,FaFortAwesome,
     FaBirthdayCake, FaUsers, FaRegCalendarAlt,
     FaShippingFast, FaSmileBeam, FaStar} from 'react-icons/fa';
 
-const Delivery = ({usuarioLogado})=>(
+const Delivery = ({usuarioLogado, whatsapp})=>(
     <Fragment>
 
         <Container>
@@ -25,10 +25,11 @@ const Delivery = ({usuarioLogado})=>(
 
             <Row>
                 <Col col='3'>
-                    <Steps>
-                        <FaWhatsapp size={48} color={'#00e676'}/>
+                    <Steps>    
+                        <a href={whatsapp} rel='noopener noreferrer' target='_blank'><FaWhatsapp color={'#00e676'} size={48}/></a>                     
                         <h4>Whatsapp</h4>
                          <p>Chame-nos no Whatsapp</p>
+                         <span>(21) 96752-4431</span>
                     </Steps>
                 </Col>
 

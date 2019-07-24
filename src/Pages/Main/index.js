@@ -62,6 +62,8 @@ export default class Main extends Component{
         return(
             <Fragment>
                 <Menu/>   
+                 <main>
+
                  
                 {this.state.loading && (   
                    <Loading>
@@ -72,14 +74,18 @@ export default class Main extends Component{
                 <SlideIntro fotos={this.state.fotos}/>
                 <Jumbotron/>
                 <Categorias/>
-                <Delivery usuarioLogado={this.state.usuarioLogado}/>
+                <Delivery usuarioLogado={this.state.usuarioLogado}
+                    whatsapp={this.state.whatsapp}
+                />
                 <Depoimentos depoimentos={this.state.depoimentos}/>
+                </main>
                 <Footer 
                 whatsapp={this.state.whatsapp}
                 facebook={this.state.facebook}
                 
                 />
+              
             </Fragment>
         )
-    }
+    } 
 }

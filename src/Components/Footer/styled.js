@@ -16,7 +16,7 @@ color:white;
         justify-content:space-between;
         align-items:center;
         
-        p{
+        h4{
             font-size:1.2rem;
         }
 
