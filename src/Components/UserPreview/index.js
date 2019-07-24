@@ -23,7 +23,12 @@ export default function UserPreview({usuarios, altstaff, deleteuser}){
 
             <FileInfo >                   
                       <Fragment >
-                           <Preview src={ usuario.avatar && usuario.avatar.url}/>  
+                           <Preview src={ usuario.avatar ? 
+                                    usuario.avatar.url
+                                    :
+                                    `https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg`
+                           
+                        }/>  
                       </Fragment>
 
                   <div>

@@ -25,7 +25,12 @@ export default function DepoPreview({depoimentos, handleChange }){
                         
             <FileInfo >                   
                       <Fragment >
-                           <Preview src={ depoimento.idusuario && depoimento.idusuario.avatar.url}/>  
+                           <Preview 
+                           src={ depoimento.idusuario.avatar ?
+                                     depoimento.idusuario.avatar.url 
+                                     :
+                                     `https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg`
+                           }/>  
                       </Fragment>
 
                   <div>

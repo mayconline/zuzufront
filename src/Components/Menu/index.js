@@ -5,6 +5,7 @@ import Toolbar from '../Toolbar';
 
 import api from '../../Services/api';
 import {detectar_mobile} from '../../Services/whats';
+import {detectar_mobile_f} from '../../Services/face';
 
 
 export default class Menu extends Component {
@@ -13,14 +14,17 @@ state={
  
   AdminBarOpen:false,
   usuarioLogado:{},
-  whatsapp:''
+  whatsapp:'',
+  facebook:''
  
 }
 
 async componentDidMount(){
    this.usuarioLogado();
  const res =  await detectar_mobile(); 
-  this.setState({whatsapp:res})
+ const face = await detectar_mobile_f();
+  this.setState({whatsapp:res,
+                  facebook:face  })
     
 }
   
@@ -83,6 +87,7 @@ render(){
               usuarioLogado={this.state.usuarioLogado}  
               logOut={this.logOut}  
               whatsapp={this.state.whatsapp}   
+              facebook={this.state.facebook}
             />
            
         </Fragment>    
