@@ -42,7 +42,8 @@ border-top: 0.25rem solid orange ;
            
           
                 img{
-                    max-height:8rem;
+                    width: 250px;
+                    height: 150px;
                 }
 
              @media (max-width:1024px) {

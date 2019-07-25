@@ -10,8 +10,7 @@ export const Header = styled.section`
   img{
     display:flex;
      justify-content:center;
-     align-items:center;
-                   
+     align-items:center;                   
     width:100%;
     max-width:400px;
     height:70vh;

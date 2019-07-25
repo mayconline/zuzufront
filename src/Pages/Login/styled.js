@@ -13,7 +13,8 @@ flex-direction:column;
 height: 100vh;
 
 img{
-            width: 300px;
+            width: 250px;
+            height: 150px;
             padding:0.5rem;
             text-decoration:none;
             font-size:2rem;

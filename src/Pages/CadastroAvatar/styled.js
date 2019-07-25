@@ -115,7 +115,8 @@ export const Card = styled.section`
                }
 
             img{
-            width: 150px;
+            width: 140px;
+            height: 180px;
             padding:0.5rem;
             text-decoration:none;
             font-size:2rem;
