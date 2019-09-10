@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Loading} from './styled';
 
-import Push, {onGranted, onDenied} from 'push.js';
 
 import SlideIntro from '../../Components/SlideIntro';
 import Jumbotron from '../../Components/Jumbotron';
@@ -28,8 +27,8 @@ export default class Main extends Component{
     }
 
     async componentDidMount(){
-        //pedindo permissao para enviar push notification//
-        await Push.Permission.request(onGranted, onDenied);
+      
+
          //start loading ...
          await this.setState({loading:true});
          const usuarioLogado =  await localStorage.getItem('@userId');

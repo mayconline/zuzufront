@@ -8,7 +8,6 @@ import Menu from '../../Components/Menu';
 
 import ReactLoading from 'react-loading';
 
-import Push from 'push.js';
 
 export default class Cadastro extends Component{
 
@@ -93,16 +92,7 @@ export default class Cadastro extends Component{
     //enviando pra api
     await api.post('/bolos/cadastro', data, {headers} )
 
-    //enviando push
-     Push.create('Novo Bolo Cadastrado',{
-        body:'Venha Conferir',
-        icon:'images/icons/icon-72x72.png',
-        link:'https://zuzucakes.netlify.com/',
-        vibrate:[200],
-        onClick: function () {
-            window.location.href = "https://zuzucakes.netlify.com/bolos"
-        }
-    })
+
 
     //end loading ...
     await this.setState({loading:false});
