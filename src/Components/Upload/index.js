@@ -1,12 +1,19 @@
-import React, {Component, Fragment} from 'react';
+import React, { Fragment, useMemo} from 'react';
 
 import Dropzone from 'react-dropzone';
 import {DropContainer , UploadMessage , Container, Content} from './styled';
 import filesize from 'filesize';
 
-export default class Upload extends Component {
+export default function Upload({onUpload, file}){
 
-    dragmsg =( isDragReject,file)=>{
+    const preview = useMemo(
+        ()=>{
+            return file ? URL.createObjectURL(file):null
+        },
+        [file]
+    )
+
+  const dragmsg =( isDragReject,file)=>{
        
         if(isDragReject){
             return <UploadMessage type='error'>ARQUIVO NÃO SUPORTADO</UploadMessage>
@@ -20,15 +27,20 @@ export default class Upload extends Component {
     };
 
 
-    render(){
+    
 
-        const {onUpload, file} = this.props
       
         return (
             <Fragment>
                 <Container>
                 <Content>
-
+                        {/*se tiver preview da imagem, ele addd a classe img-prev*/}
+                <Container>
+                <img src={preview} className={file ? 'img-prev':''}/>
+                </Container>
+                
+                
+                  
                 <Dropzone accept='image/*' onDropAccepted={onUpload}>
                  {({getRootProps, getInputProps, isDragActive, isDragReject})=>(
                     
@@ -39,7 +51,7 @@ export default class Upload extends Component {
                      >
                             <input {...getInputProps()} />
                             
-                            {this.dragmsg(isDragReject, file)}
+                            {dragmsg(isDragReject, file)}
                     </DropContainer>
                     
                       
@@ -52,6 +64,6 @@ export default class Upload extends Component {
                </Container>
    
                </Fragment>
-        )}
+        )
+    }
 
-}

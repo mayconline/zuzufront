@@ -160,6 +160,12 @@ export default class Cadastro extends Component{
                 </form>
            
                 </Card>
+
+                {this.state.loading && (   
+                       <Loading>
+                            <ReactLoading type='bars' color='#f00' height={'10rem'} width={'10rem'} />    
+                       </Loading>     
+                         )} 
     
                 <section>
                 <ProdPreview 

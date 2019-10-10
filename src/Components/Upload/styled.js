@@ -14,6 +14,12 @@ export const Content = styled.div`
     background:#fff;
     border-radius:4px;
     padding:20px;
+
+    .img-prev{
+        width:100%;
+        min-width:360px;
+       
+    }
 `;
 
 
