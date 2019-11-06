@@ -122,6 +122,7 @@ export default class Cadastro extends Component{
     
                     {this.state.loading && (   
                        <Loading>
+                            <p>Carregando, Por favor Aguarde ...</p>
                             <ReactLoading type='bars' color='#f00' height={'10rem'} width={'10rem'} />    
                        </Loading>     
                          )} 
@@ -163,6 +164,7 @@ export default class Cadastro extends Component{
 
                 {this.state.loading && (   
                        <Loading>
+                            <p>Carregando, Por favor Aguarde ...</p>
                             <ReactLoading type='bars' color='#f00' height={'10rem'} width={'10rem'} />    
                        </Loading>     
                          )} 
