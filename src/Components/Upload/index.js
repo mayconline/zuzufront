@@ -36,7 +36,7 @@ export default function Upload({onUpload, file}){
                 <Content>
                         {/*se tiver preview da imagem, ele addd a classe img-prev*/}
                 <Container>
-                <img src={preview} className={file ? 'img-prev':''}/>
+                <img src={preview} alt={file ? 'img-prev':''} className={file ? 'img-prev':''}/>
                 </Container>
                 
                 

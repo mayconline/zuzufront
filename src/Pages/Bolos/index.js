@@ -46,7 +46,7 @@ export default function Bolos(){
         }
          catch(e){
                  //end loading...
-                    await setLoading(false);
+                   await setLoading(false);
                         return e;
              }          
     }
@@ -75,7 +75,9 @@ export default function Bolos(){
              <Main>
              {loading && (   
                    <Loading>
+                     <p>Carregando, Por favor Aguarde ...</p>
                         <ReactLoading type='bars' color='#f00' height={'10rem'} width={'10rem'} />    
+                        
                    </Loading>     
                      )} 
 

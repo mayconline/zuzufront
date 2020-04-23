@@ -13,7 +13,7 @@ export const Header = styled.section`
      align-items:center;                   
     width:100%;
     max-width:400px;
-    height:70vh;
+    height:60vh;
     padding: 0.5rem 0.25rem;
     border-style: none;
    
