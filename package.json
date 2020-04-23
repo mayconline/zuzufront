@@ -18,6 +18,11 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"
   },
+  "devDependencies": {
+    "husky": "4.2.3",
+    "lint-staged": "10.1.2",
+    "prettier": "2.0.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -37,6 +42,17 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,json,md}": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
