@@ -5,7 +5,7 @@
  </a>
  
  ##### :pushpin: Links 
- * [Website](https://zuzucakes.netlify.com/)
+ * [Website PWA](https://zuzucakes.netlify.com/)
  * [Facebook](https://www.facebook.com/zuzucakesoficial/)
  * [Instagram](https://www.instagram.com/zuzucake.s/)
  
