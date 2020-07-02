@@ -1,6 +1,6 @@
  <a href='https://zuzucakes.netlify.com/' rel='noopener noreferrer' target='_blank' >
    <p align="center">
-     <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1556741879/ZuzuCake/Logo/zuzuLogo_x0crgs.png' alt='ZuzuCakes' width="250" />
+     <img src='https://res.cloudinary.com/dw9ca2cwa/image/upload/v1593728556/logotipos/zuzuLogo_dxyjxf.png' alt='ZuzuCakes' width="300" />
    </p>
  </a>
  
