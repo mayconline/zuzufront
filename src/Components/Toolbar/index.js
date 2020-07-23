@@ -100,9 +100,9 @@ const Toolbar = ({
 
     <Header>
       <nav className="toolbar_navigation">
-        <div className="toolbar_logo">
+        <Link to="/" className="toolbar_logo">
           <ZuzuLogo />
-        </div>
+        </Link>
 
         <SearchBar />
 
