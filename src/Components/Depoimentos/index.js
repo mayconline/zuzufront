@@ -1,131 +1,117 @@
-import React, {Component, Fragment} from 'react';
-import Slider  from 'react-slick';
+import React, { Component, Fragment } from 'react';
+import Slider from 'react-slick';
 
-import {Depoimento, Rating, Header} from './styled';
-import {FaStar, FaRegStar} from "react-icons/fa";
+import { Depoimento, Rating, Header } from './styled';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
 export default class Depoimentos extends Component {
+  render() {
+    const { depoimentos } = this.props;
 
-    render(){
+    const settings = {
+      focusOnSelect: true,
+      pauseOnHover: true,
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      cssEase: 'linear',
+      dots: true,
+      infinite: true,
+      speed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      initialSlide: 0,
+    };
 
-        const{depoimentos}=this.props
+    return (
+      <Fragment>
+        <Header>
+          <Slider {...settings}>
+            {depoimentos &&
+              depoimentos.map(depoimento => (
+                <Depoimento key={depoimento._id}>
+                  {depoimento.idusuario.avatar ? (
+                    <img
+                      src={depoimento.idusuario.avatar.url}
+                      alt="avatar dos usuarios"
+                    />
+                  ) : (
+                    <img
+                      src="https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg"
+                      alt="Avatar do Usuario"
+                    />
+                  )}
 
-        const settings = {
-          
-            focusOnSelect: true,
-            pauseOnHover: true,
-            adaptiveHeight: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            cssEase: "linear",
-                    dots: true,
-                    infinite: true,
-                    speed: 1000,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 0                       
-                  };    
+                  {depoimento && depoimento.nota === 0 && (
+                    <Rating>
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                    </Rating>
+                  )}
 
-        return(
+                  {depoimento && depoimento.nota === 1 && (
+                    <Rating>
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                    </Rating>
+                  )}
 
-            <Fragment>
-                
-                 
-            
-                <Header>
-                   
-                 <Slider {...settings} >
-                    
-                 {depoimentos &&
-                         depoimentos.map(depoimento=>(
+                  {depoimento && depoimento.nota === 2 && (
+                    <Rating>
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                    </Rating>
+                  )}
 
-                            <Depoimento key={depoimento._id}>
-                               
-                               { depoimento.idusuario.avatar ?
-                                <img src={ depoimento.idusuario.avatar.url} alt='avatar dos usuarios' />
-                                :
-                                <img src='https://res.cloudinary.com/apinodeteste/image/upload/v1562595741/avatar/person_avatar_gcuj7q.jpg' alt='Avatar do Usuario' />
-                             }
-                                
+                  {depoimento && depoimento.nota === 3 && (
+                    <Rating>
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                    </Rating>
+                  )}
 
-                                
-{depoimento && depoimento.nota===0 &&(
-    <Rating>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    </Rating>
-    )}
+                  {depoimento && depoimento.nota === 4 && (
+                    <Rating>
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaRegStar color={'#fbec5d'} size={30} />
+                    </Rating>
+                  )}
 
+                  {depoimento && depoimento.nota === 5 && (
+                    <Rating>
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                      <FaStar color={'#fbec5d'} size={30} />
+                    </Rating>
+                  )}
 
-{depoimento && depoimento.nota===1 &&(
-    <Rating>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    </Rating>
-    )}
-
-{depoimento && depoimento.nota===2 &&(
-    <Rating>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    </Rating>
-    )}
-
-{depoimento && depoimento.nota===3 &&(
-    <Rating>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    <FaRegStar color={'#fbec5d'} size={30}/>
-    </Rating>
-    )}
-    
-
-
-{depoimento && depoimento.nota===4 &&(
-<Rating>
-<FaStar color={'#fbec5d'} size={30}/>
-<FaStar color={'#fbec5d'} size={30}/>
-<FaStar color={'#fbec5d'} size={30}/>
-<FaStar color={'#fbec5d'} size={30}/>
-<FaRegStar color={'#fbec5d'} size={30}/>
-</Rating>
-)}
-
-{depoimento && depoimento.nota===5 &&(
-    <Rating>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    <FaStar color={'#fbec5d'} size={30}/>
-    </Rating>
-    )}
-                                    
-                                     <p>"{depoimento.descricao && depoimento.descricao}"</p>                                      
-                                      <cite> - {depoimento.idusuario && depoimento.idusuario.nome}</cite>  
-                                         
-                                          
-                                    
-                            </Depoimento>
-                                       
-                                          
-                                                                                       
-                                                                                                                                                                              
-                                    ))}
-                 </Slider>
-                 </Header> 
-            </Fragment>
-        )
-    }
+                  <p>"{depoimento.descricao && depoimento.descricao}"</p>
+                  <cite>
+                    {' '}
+                    - {depoimento.idusuario && depoimento.idusuario.nome}
+                  </cite>
+                </Depoimento>
+              ))}
+          </Slider>
+        </Header>
+      </Fragment>
+    );
+  }
 }

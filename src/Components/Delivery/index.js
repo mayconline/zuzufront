@@ -1,126 +1,131 @@
-import React, {Fragment} from 'react';
-import {Link} from 'react-router-dom';
-import {Title, Steps} from './styled';
-import {Container, Row ,Col} from '../Grid';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { Title, Steps } from './styled';
+import { Container, Row, Col } from '../Grid';
 
-import {FaWhatsapp,FaFortAwesome,
-    FaBirthdayCake, FaUsers, FaRegCalendarAlt,
-    FaShippingFast, FaSmileBeam, FaStar} from 'react-icons/fa';
+import {
+  FaWhatsapp,
+  FaFortAwesome,
+  FaBirthdayCake,
+  FaUsers,
+  FaRegCalendarAlt,
+  FaShippingFast,
+  FaSmileBeam,
+  FaStar,
+} from 'react-icons/fa';
 
-const Delivery = ({usuarioLogado, whatsapp})=>(
-    <Fragment>
+const Delivery = ({ usuarioLogado, whatsapp }) => (
+  <Fragment>
+    <Container>
+      <Row>
+        <Col col="12">
+          <Title id="quemsomos">
+            <h2>Atendemos toda Capital do Rio de Janeiro</h2>
+            <h3>Estamos localizados no bairro de Cordovil, Zona Norte do RJ</h3>
+          </Title>
+        </Col>
+      </Row>
 
-        <Container>
-            <Row>
-                <Col col='12'>
-                    <Title id="quemsomos">
-                        <h2>Atendemos toda Capital do Rio de Janeiro</h2>
-                        <h3>
-                         Estamos localizados no bairro de Cordovil, Zona Norte do RJ
-                        </h3>     
-                    </Title>
-                </Col>
+      <Row>
+        <Col col="3">
+          <Steps>
+            <a href={whatsapp} rel="noopener noreferrer" target="_blank">
+              <FaWhatsapp color={'#00e676'} size={48} />
+            </a>
+            <h4>Whatsapp</h4>
+            <p>Chame-nos no Whatsapp</p>
+            <span>(21) 96752-4431</span>
+          </Steps>
+        </Col>
 
-            </Row>
+        <Col col="3">
+          <Steps>
+            <FaFortAwesome size={48} color={'#f00'} />
+            <h4>Tema</h4>
+            <p>
+              Escolha o Tema que Preferir para seu Bolo, ou caso ja tenha um
+              modelo em mente, nos envie uma foto de como quer que fique seu
+              bolo
+            </p>
+          </Steps>
+        </Col>
 
-            <Row>
-                <Col col='3'>
-                    <Steps>    
-                        <a href={whatsapp} rel='noopener noreferrer' target='_blank'><FaWhatsapp color={'#00e676'} size={48}/></a>                     
-                        <h4>Whatsapp</h4>
-                         <p>Chame-nos no Whatsapp</p>
-                         <span>(21) 96752-4431</span>
-                    </Steps>
-                </Col>
+        <Col col="3">
+          <Steps>
+            <FaBirthdayCake size={48} color={'#d2691e'} />
+            <h4>Recheio</h4>
+            <p>
+              Diga-nos qual sabores deseja que tenha em seu bolo, utilizamos
+              sempre os melhores ingredientes para tornar seu sabor irresistível
+            </p>
+          </Steps>
+        </Col>
 
-                <Col col='3'>
-                    <Steps>
-                        <FaFortAwesome size={48} color={'#f00'}/>
-                        <h4>Tema</h4>
-                         <p>Escolha o Tema que Preferir para
-                            seu Bolo, ou caso ja tenha um modelo em mente,
-                             nos envie uma foto de como quer que fique seu bolo
-                         </p>
-                    </Steps>
-                </Col>
+        <Col col="3">
+          <Steps>
+            <FaUsers size={48} color={'#000'} />
+            <h4>Tamanho</h4>
+            <p>
+              Diga-nos para quantas pessoas você quer o bolo, ou quantos
+              Centímetros de bolo deseja, prefere redondo ou quadrado ? Faremos
+              do jeito que pedir
+            </p>
+          </Steps>
+        </Col>
+      </Row>
 
-                <Col col='3'>
-                    <Steps>
-                        <FaBirthdayCake size={48} color={'#d2691e'}/>
-                        <h4>Recheio</h4>
-                         <p>Diga-nos qual sabores deseja que tenha em seu bolo,
-                             utilizamos sempre os melhores ingredientes para tornar
-                             seu sabor irresistível
-                         </p>
-                    </Steps>
-                </Col>
+      <Row>
+        <Col col="3">
+          <Steps>
+            <FaRegCalendarAlt size={48} color={'#e83e8c'} />
+            <h4>Data de Entrega</h4>
+            <p>
+              Escolha uma data entrega, com 3 dias de Antecedência, para que
+              possamos fazer com toda perfeição que você merece
+            </p>
+          </Steps>
+        </Col>
 
-                <Col col='3'>
-                    <Steps>
-                        <FaUsers size={48} color={'#000'}/>
-                        <h4>Tamanho</h4>
-                         <p>Diga-nos para quantas pessoas você quer o bolo, 
-                            ou quantos Centímetros de bolo deseja,  
-                            prefere redondo ou quadrado ? Faremos do jeito que pedir
-                         </p>
-                    </Steps>
-                </Col>
-            </Row>
+        <Col col="3">
+          <Steps>
+            <FaShippingFast size={48} color={'#17a2b8'} />
+            <h4>Forma de Entrega</h4>
+            <p>
+              Defina como será realizado a Entrega, podemos entregar em um local
+              definido por você, ou pode ser retirado por você em nosso local de
+              trabalho
+            </p>
+          </Steps>
+        </Col>
 
-            <Row>
-                <Col col='3'>
-                    <Steps>
-                        <FaRegCalendarAlt size={48} color={'#e83e8c'}/>
-                        <h4>Data de Entrega</h4>
-                         <p>Escolha uma data entrega, com 3 dias de Antecedência,
-                         para que possamos fazer com toda perfeição que você merece</p>
-                    </Steps>
-                </Col>
+        <Col col="3">
+          <Steps>
+            <FaSmileBeam size={48} color={'#008000'} />
+            <h4>Aproveite seu Dia</h4>
+            <p>
+              Curta muito esse dia tão especial para você e sua família,
+              desejamos que tenham um dia perfeito com muito amor, sabor e
+              carinho
+            </p>
+          </Steps>
+        </Col>
 
-                <Col col='3'>
-                    <Steps>
-                        <FaShippingFast size={48} color={'#17a2b8'}/>
-                        <h4>Forma de Entrega</h4>
-                         <p>Defina como será realizado a Entrega, podemos entregar em um local definido por você,
-                            ou pode ser retirado por você em nosso local de trabalho</p>
-                    </Steps>
-                </Col>
+        <Col col="3">
+          <Steps>
+            <Link to={`/usuarios/${usuarioLogado}/perfil`}>
+              <FaStar size={48} color={'#ffcb0c'} className="avaliar" />
+            </Link>
 
-                <Col col='3'>
-                    <Steps>
-                        <FaSmileBeam size={48} color={'#008000'}/>
-                        <h4>Aproveite seu  Dia</h4>
-                         <p>Curta muito esse dia tão especial para você e sua família,
-                            desejamos que tenham um dia perfeito com muito amor, sabor e carinho</p>
-                    </Steps>
-                </Col>
-
-                <Col col='3' >
-                    <Steps >
-                        <Link to={`/usuarios/${usuarioLogado}/perfil`}> 
-                        <FaStar size={48} color={'#ffcb0c'} className='avaliar' />
-                        </Link>
-                       
-                        <h4 >Avalie-nos</h4>
-                         <p>Ajude-nos a melhorar nossos serviços nos avaliando, é muito importante para nós</p>
-                    </Steps>
-                </Col>
-            </Row>
-
-        </Container>
-
-         
-
-
-        
-
-       
-
-    </Fragment>
-   
-
+            <h4>Avalie-nos</h4>
+            <p>
+              Ajude-nos a melhorar nossos serviços nos avaliando, é muito
+              importante para nós
+            </p>
+          </Steps>
+        </Col>
+      </Row>
+    </Container>
+  </Fragment>
 );
-
-
 
 export default Delivery;

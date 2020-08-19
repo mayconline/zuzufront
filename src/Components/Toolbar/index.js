@@ -106,8 +106,6 @@ const Toolbar = ({
 
         <SearchBar />
 
-        {/*activeClassName=selected coloca a classe automatica*/}
-
         <div className="toolbar_navigation_item">
           <ul>
             <li>
