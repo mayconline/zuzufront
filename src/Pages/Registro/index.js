@@ -12,6 +12,7 @@ import {
   MdAccountCircle,
 } from 'react-icons/md';
 import api from '../../Services/api';
+import ZuzuLogo from '../../Assets/svg/ZuzuLogo';
 
 export default class Registro extends Component {
   state = {
@@ -145,11 +146,7 @@ export default class Registro extends Component {
         <Container>
           <h1>
             <Link to="/">
-              {' '}
-              <img
-                src="https://res.cloudinary.com/apinodeteste/image/upload/v1556741879/ZuzuCake/Logo/zuzuLogo_x0crgs.png"
-                alt="Zuzu Cakes"
-              />
+              <ZuzuLogo />
             </Link>
           </h1>
 
