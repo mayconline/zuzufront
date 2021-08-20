@@ -73,7 +73,8 @@ export default class Main extends Component {
           <Categorias />
           <Delivery
             usuarioLogado={this.state.usuarioLogado}
-            whatsapp={this.state.whatsapp}
+            // whatsapp={this.state.whatsapp}
+            whatsapp={'https://zuzucakes.netlify.app/'}
           />
           <Depoimentos depoimentos={this.state.depoimentos} />
         </main>

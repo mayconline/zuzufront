@@ -26,15 +26,22 @@ export default class Jumbotron extends Component {
           <h3>
             <FaWhatsapp size={50} color={'#00e676'} />
           </h3>
-          <span> (21)96752-4431 </span>
+          {/* <span> (21)96752-4431 </span> */}
 
           <a
+            href="https://zuzucakes.netlify.app/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            EM BREVE
+          </a>
+          {/* <a
             href={this.state.whatsapp}
             rel="noopener noreferrer"
             target="_blank"
           >
             PEÇA JÁ O SEU
-          </a>
+          </a> */}
         </Title>
       </Fragment>
     );

@@ -37,7 +37,8 @@ const Toolbar = ({
             <FaFacebookF color={'#000'} size={20} />
           </a>
           <a
-            href="https://instagram.com/zuzucake.s?igshid=1sgypfz2ofkmm"
+            // href="https://instagram.com/zuzucake.s?igshid=1sgypfz2ofkmm"
+            href="https://zuzucakes.netlify.app/"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -61,7 +62,7 @@ const Toolbar = ({
                 </li>
                 <li>
                   {' '}
-                  <Link to="/registro" className="register">
+                  <Link to="/" className="register">
                     {' '}
                     REGISTRAR
                   </Link>

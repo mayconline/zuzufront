@@ -60,8 +60,10 @@ export default class Menu extends Component {
           AdminBarState={this.state.AdminBarOpen}
           usuarioLogado={this.state.usuarioLogado}
           logOut={this.logOut}
-          whatsapp={this.state.whatsapp}
-          facebook={this.state.facebook}
+          // whatsapp={this.state.whatsapp}
+          // facebook={this.state.facebook}
+          whatsapp={'https://zuzucakes.netlify.app/'}
+          facebook={'https://zuzucakes.netlify.app/'}
         />
       </Fragment>
     );

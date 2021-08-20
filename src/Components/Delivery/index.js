@@ -33,8 +33,9 @@ const Delivery = ({ usuarioLogado, whatsapp }) => (
               <FaWhatsapp color={'#00e676'} size={48} />
             </a>
             <h4>Whatsapp</h4>
-            <p>Chame-nos no Whatsapp</p>
-            <span>(21) 96752-4431</span>
+            <p>Em Breve</p>
+            {/* <p>Chame-nos no Whatsapp</p>
+            <span>(21) 96752-4431</span> */}
           </Steps>
         </Col>
 
